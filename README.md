@@ -29,7 +29,7 @@ javafx.controls,javafx.fxml
 
 Durante la prima settimana, non ci siamo incentrati molto su questo codice preferendo di portare a termine la prima parte di questo progetto, ovvero la randomizzazione dei vari Pokémon. 
 
-Nello specifico questa settimana abbiamo lavorato al progetto scrivendo in un database tutte le informazioni dei vari Pokémon che ci serviranno per svolgere il programma. 
+Nello specifico questa settimana abbiamo lavorato al progetto scrivendo in un [database](https://docs.google.com/spreadsheets/d/1-Yw_hxKg4_Z6nziu_lHgmgpDhv4dFtOQmIZDYbOK21I/edit?usp=sharing) tutte le informazioni dei vari Pokémon che ci serviranno per svolgere il programma. 
 
 ## Work in Progress 
 
