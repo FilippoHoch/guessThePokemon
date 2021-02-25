@@ -43,4 +43,4 @@ Nello specifico questa settimana abbiamo lavorato al progetto scrivendo in un [d
 
 - [Gabriele Borghesi](https://github.com/Gabry-EXE) 
 
-- [Daniele Romano](https://github.com/ROMA030) 
+- [Daniele Romano](https://github.com/ROMA030)
