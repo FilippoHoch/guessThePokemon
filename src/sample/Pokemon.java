@@ -59,4 +59,43 @@ public class Pokemon {
         this.abilities[2] = ability2;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setEvoPhase(int evoPhase) {
+        this.evoPhase = evoPhase;
+    }
+
+    public void setType1(String type1) {
+        this.type1 = type1;
+    }
+
+    public void setType2(String type2) {
+        this.type2 = type2;
+    }
+
+    public void setGeneration(int generation) {
+        this.generation = generation;
+    }
+
+    public void setRarity(String rarity) {
+        this.rarity = rarity;
+    }
+
+    public void setHeight(double height) {
+        this.height = height;
+    }
+
+    public void setWeight(double weight) {
+        this.weight = weight;
+    }
+
+    public void setAbilities(String[] abilities) {
+        this.abilities = abilities;
+    }
 }
