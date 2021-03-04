@@ -31,9 +31,17 @@ Durante la prima settimana, non ci siamo incentrati molto su questo codice prefe
 
 Nello specifico questa settimana abbiamo lavorato al progetto scrivendo in un [database](https://docs.google.com/spreadsheets/d/1-Yw_hxKg4_Z6nziu_lHgmgpDhv4dFtOQmIZDYbOK21I/edit?usp=sharing) tutte le informazioni dei vari Pokémon che ci serviranno per svolgere il programma. 
 
+## Seconda settimana
+
+Durante questa settimana abbiamo lavorato divisi un du gruppi: uno si occupava di iniziare a fare la grafica su SceneBuilder, mentre l'altro iniziava a creare il codice funzionante senza l'aggiunta della grafica che verrà implementata successivamente. Nel codice abbiamo
+
+effettuato la lettura di un file excel in cui tenevamo tutte le informazioni di cui avevamo bisogno.
+
 ## Work in Progress 
 
-- Ancora in fase di progettazione 
+- Avanzamento del codice
+
+- Implementazione della grafica 
 
 ## Autori 
 
