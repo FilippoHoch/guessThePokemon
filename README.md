@@ -29,26 +29,20 @@ javafx.controls,javafx.fxml
 
 Durante la prima settimana, non ci siamo incentrati molto su questo codice preferendo di portare a termine la prima parte di questo progetto, ovvero la randomizzazione dei vari Pokémon. 
 
-Nello specifico questa settimana abbiamo lavorato al progetto scrivendo in un [database](https://docs.google.com/spreadsheets/d/1-Yw_hxKg4_Z6nziu_lHgmgpDhv4dFtOQmIZDYbOK21I/edit?usp=sharing) tutte le informazioni dei vari Pokémon che ci serviranno per svolgere il programma. 
+Nello specifico questa settimana abbiamo lavorato al progetto scrivendo in un [database](https://docs.google.com/spreadsheets/d/1-Yw_hxKg4_Z6nziu_lHgmgpDhv4dFtOQmIZDYbOK21I/edit?usp=sharing) tutte le informazioni dei vari pokémon che ci serviranno per svolgere il programma. 
 
 ## Seconda settimana
 
-Durante questa settimana abbiamo lavorato divisi un du gruppi: uno si occupava di iniziare a fare la grafica su SceneBuilder, mentre l'altro iniziava a creare il codice funzionante senza l'aggiunta della grafica che verrà implementata successivamente. Nel codice abbiamo
-
-effettuato la lettura di un file excel in cui tenevamo tutte le informazioni di cui avevamo bisogno.
+Durante questa settimana abbiamo lavorato divisi un due gruppi: uno si occupava di iniziare a fare la grafica su SceneBuilder, mentre l'altro ha iniziato a creare il codice funzionante senza l'aggiunta della grafica che verrà implementata successivamente. Nel codice abbiamo effettuato la lettura del [database (https://docs.google.com/spreadsheets/d/1-Yw_hxKg4_Z6nziu_lHgmgpDhv4dFtOQmIZDYbOK21I/edit?usp=sharing) contenente le informazioni relative a ciascun pokémon.
 
 ## Work in Progress 
 
 - Avanzamento del codice
-
-- Implementazione della grafica 
+- Implementazione della grafica
 
 ## Autori 
 
 - [Filippo Hoch](https://github.com/FilippoHoch) 
-
 - [Paolo Braga](https://github.com/PaoloBraga) 
-
 - [Gabriele Borghesi](https://github.com/Gabry-EXE) 
-
 - [Daniele Romano](https://github.com/ROMA030)
