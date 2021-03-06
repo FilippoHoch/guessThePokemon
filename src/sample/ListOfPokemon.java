@@ -10,6 +10,9 @@ public class ListOfPokemon {
 
     private final ArrayList<Pokemon> pokemonArrayList = new ArrayList<>();
 
+    private ListOfPokemon () {
+    }
+
     public void excelReading() {
         try
         {
