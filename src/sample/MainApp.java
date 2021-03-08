@@ -13,7 +13,7 @@ public class MainApp extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         Parent root2 = FXMLLoader.load(getClass().getResource("sample/createNewGame.fxml"));
         Parent root3 = FXMLLoader.load(getClass().getResource("sample/ranking.fxml"));
-        primaryStage.setTitle("Guess the Pokemon");
+
         Scene sample = new Scene(root);
         Scene createNewGame = new Scene(root2);
         Scene ranking = new Scene(root3);
@@ -25,6 +25,9 @@ public class MainApp extends Application {
         primaryStage.setResizable(false);
         newGameStage.setResizable(false);
         rankingStage.setResizable(false);
+        primaryStage.setTitle("Guess the Pokemon");
+        newGameStage.setTitle("New Game");
+        rankingStage.setTitle("Ranking");
         primaryStage.show();
 
     }
