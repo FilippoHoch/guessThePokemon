@@ -12,6 +12,7 @@ public class ListOfPokemon {
     private final ArrayList<String> abilityArrayList = new ArrayList<>();
     private final ArrayList<Ability> pokemonAbilityArrayList = new ArrayList<>();
 
+
     private ListOfPokemon () {
     }
 
