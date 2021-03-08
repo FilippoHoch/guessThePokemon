@@ -9,6 +9,11 @@ import java.util.Iterator;
 public class ListOfPokemon {
 
     private final ArrayList<Pokemon> pokemonArrayList = new ArrayList<>();
+    private final ArrayList<String> abilityArrayList = new ArrayList<>();
+    private final ArrayList<Ability> pokemonAbilityArrayList = new ArrayList<>();
+
+    private ListOfPokemon () {
+    }
 
     public void excelReading() {
         try
@@ -30,6 +35,39 @@ public class ListOfPokemon {
                 double pokemonWeight = Double.parseDouble(cellIterator.next().toString());
 
                 pokemonArrayList.add(new Pokemon(pokemonNumber, pokemonName, pokemonPhase, pokemonType1, pokemonType2, pokemonGeneration, pokemonRarity, pokemonHeight, pokemonWeight));
+            }
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        try{
+            File f = new File( "src/sample/abilityDataBase.xlsx" );
+            Workbook wb = WorkbookFactory.create(f);
+            Sheet mySheet = wb.getSheetAt(0);
+            for ( Iterator<Row> rowIterator = mySheet.rowIterator(); rowIterator.hasNext(); )
+            {
+                Iterator<Cell> cellIterator = rowIterator.next().cellIterator();
+                String abilityName = cellIterator.next().toString();
+                abilityArrayList.add(abilityName);
+            }
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        try
+        {
+            File f = new File( "src/sample/pokemonDataBase.xlsx" );
+            Workbook wb = WorkbookFactory.create(f);
+            Sheet mySheet = wb.getSheetAt(0);
+            for ( Iterator<Row> rowIterator = mySheet.rowIterator(); rowIterator.hasNext(); )
+            {
+                Iterator<Cell> cellIterator = rowIterator.next().cellIterator();
+                int pokemonId = Integer.parseInt(cellIterator.toString());
+                int abilityId = Integer.parseInt(cellIterator.next().toString());
+                pokemonAbilityArrayList.add(new Ability(pokemonId));
+                pokemonAbilityArrayList.get(pokemonId).addAbilitySlots(abilityId);
             }
         }
         catch(Exception e)
