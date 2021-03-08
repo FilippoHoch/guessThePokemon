@@ -19,7 +19,7 @@ public class ListOfPokemon {
     public void excelReading() {
         try
         {
-            File f = new File( "src/sample/pokemonDataBase.xlsx" );
+            File f = new File( "src/sample/Excel/pokemonDataBase.xlsx" );
             Workbook wb = WorkbookFactory.create(f);
             Sheet mySheet = wb.getSheetAt(0);
             for ( Iterator<Row> rowIterator = mySheet.rowIterator(); rowIterator.hasNext(); )
@@ -43,7 +43,7 @@ public class ListOfPokemon {
             e.printStackTrace();
         }
         try{
-            File f = new File( "src/sample/abilityDataBase.xlsx" );
+            File f = new File( "src/sample/Excel/abilityDataBase.xlsx" );
             Workbook wb = WorkbookFactory.create(f);
             Sheet mySheet = wb.getSheetAt(0);
             for ( Iterator<Row> rowIterator = mySheet.rowIterator(); rowIterator.hasNext(); )
@@ -59,7 +59,7 @@ public class ListOfPokemon {
         }
         try
         {
-            File f = new File( "src/sample/pokemonDataBase.xlsx" );
+            File f = new File( "src/sample/Excel/abilityDataBasePokemon.xlsx" );
             Workbook wb = WorkbookFactory.create(f);
             Sheet mySheet = wb.getSheetAt(0);
             for ( Iterator<Row> rowIterator = mySheet.rowIterator(); rowIterator.hasNext(); )

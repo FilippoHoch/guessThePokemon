@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="listView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Button layoutX="380.0" layoutY="160.0" mnemonicParsing="false" text="Confirm" />
       <Button layoutX="321.0" layoutY="160.0" mnemonicParsing="false" text="Cancel" />
@@ -21,7 +21,7 @@
       <ComboBox layoutX="271.0" layoutY="79.0" prefHeight="26.0" prefWidth="114.0" promptText="Rarity" />
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../img/createNewGame.png" />
+            <Image url="" />
          </image>
       </ImageView>
    </children>
