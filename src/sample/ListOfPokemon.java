@@ -5,13 +5,12 @@ import org.apache.poi.ss.usermodel.*;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Random;
 
 public class ListOfPokemon {
-
     private final ArrayList<Pokemon> pokemonArrayList = new ArrayList<>();
     private final ArrayList<String> abilityArrayList = new ArrayList<>();
     private final ArrayList<Ability> pokemonAbilityArrayList = new ArrayList<>();
-
 
     private ListOfPokemon () {
     }
@@ -76,4 +75,33 @@ public class ListOfPokemon {
             e.printStackTrace();
         }
     }
+
+    public int countAbility(int generation, int evoPhase, String rarity){
+        int numeroAbilità = 0;
+        for(int i = 0; i < pokemonArrayList.toArray().length; i++){
+            if (pokemonArrayList.get(i).getGeneration() == generation &&
+                    pokemonArrayList.get(i).getEvoPhase() == evoPhase &&
+                    pokemonArrayList.get(i).getRarity() == rarity)
+            {
+                numeroAbilità++;
+            }
+        }
+        return numeroAbilità;
+    }
+
+    public Pokemon takeRandomPokemon(int generation, int evoPhase, String rarity){
+        Random random = new Random();
+        Pokemon randomPokemon;
+        do{
+            randomPokemon = pokemonArrayList.get(random.nextInt(pokemonArrayList.toArray().length));
+        }while( randomPokemon.getGeneration() != generation ||
+                randomPokemon.getEvoPhase() != evoPhase ||
+                randomPokemon.getRarity() != rarity);
+        return randomPokemon;
+    }
+
+    public int getScore( int aiutiDati, int pokemonPossibili ){
+        return ((pokemonPossibili/721)+((9-aiutiDati)/8))*50;
+    }
+
 }
