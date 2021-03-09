@@ -57,10 +57,14 @@ contenente le informazioni relative a ciascun pokémon.
 
 ## Work in Progress
 
-###Codice: 
+### Codice:
+
 - Classe che genera un Pokémon a caso(con le opzioni scelte)
 - Punteggio
-###Grafica:
+- Salvare gli user e i punteggi in un file
+
+### Grafica:
+
 - Inserire la lista Pokemon
 - Configurare il NewGame
 - Implementazione tableView LeaderBoard

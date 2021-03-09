@@ -74,6 +74,7 @@ public class sampleController implements Initializable {
         Stage currentStage = (Stage) logo.getScene().getWindow();
         stage.initOwner(currentStage);
         stage.initModality(Modality.WINDOW_MODAL);
+        stage.setResizable(false);
         stage.show();
 
     }
@@ -88,6 +89,7 @@ public class sampleController implements Initializable {
         Stage currentStage = (Stage) logo.getScene().getWindow();
         stage.initOwner(currentStage);
         stage.initModality(Modality.WINDOW_MODAL);
+        stage.setResizable(false);
         stage.show();
     }
 

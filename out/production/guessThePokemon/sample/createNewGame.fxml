@@ -7,15 +7,33 @@
             xmlns="http://javafx.com/javafx/15.0.1" fx:controller="sample.createNewGameController">
     <children>
         <Button layoutX="380.0" layoutY="160.0" mnemonicParsing="false" onAction="#confirm" text="Confirm"/>
-        <Button fx:id="cancel" layoutX="321.0" layoutY="160.0" mnemonicParsing="false" text="Cancel"
-                onAction="#cancel"/>
+        <Button fx:id="cancel" layoutX="321.0" layoutY="160.0" mnemonicParsing="false" onAction="#cancel"
+                text="Cancel"/>
         <Label layoutX="14.0" layoutY="51.0" text="select rule for your new game"/>
         <Label layoutX="281.0" layoutY="16.0" text="Insert your Nickname"/>
-        <TextField layoutX="280.0" layoutY="40.0"/>
-        <ComboBox layoutX="14.0" layoutY="79.0" prefHeight="26.0" prefWidth="114.0" promptText="Generation"/>
-        <ComboBox layoutX="138.0" layoutY="79.0" prefHeight="26.0" prefWidth="123.0" promptText="Evolution step"/>
-        <ComboBox layoutX="271.0" layoutY="79.0" prefHeight="26.0" prefWidth="114.0" promptText="Rarity"/>
+        <TextField fx:id="nicknameField" layoutX="280.0" layoutY="40.0"/>
         <ImageView fx:id="createNewGameImage" fitHeight="44.0" fitWidth="242.0" layoutX="17.0" layoutY="11.0"
                    pickOnBounds="true" preserveRatio="true"/>
+        <MenuButton fx:id="generation" layoutX="14.0" layoutY="79.0" mnemonicParsing="false" prefHeight="26.0"
+                    prefWidth="114.0" text="Generation">
+            <items>
+                <MenuItem mnemonicParsing="false" text="Action 1"/>
+                <MenuItem mnemonicParsing="false" text="Action 2"/>
+            </items>
+        </MenuButton>
+        <MenuButton fx:id="evolutionStep" layoutX="142.0" layoutY="79.0" mnemonicParsing="false" prefHeight="26.0"
+                    prefWidth="114.0" text="Evolution step">
+            <items>
+                <MenuItem mnemonicParsing="false" text="Action 1"/>
+                <MenuItem mnemonicParsing="false" text="Action 2"/>
+            </items>
+        </MenuButton>
+        <MenuButton fx:id="rarity" layoutX="271.0" layoutY="79.0" mnemonicParsing="false" prefHeight="26.0"
+                    prefWidth="114.0" text="Rarity">
+            <items>
+                <MenuItem mnemonicParsing="false" text="Action 1"/>
+                <MenuItem mnemonicParsing="false" text="Action 2"/>
+            </items>
+        </MenuButton>
     </children>
 </AnchorPane>

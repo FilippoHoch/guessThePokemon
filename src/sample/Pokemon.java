@@ -8,7 +8,7 @@ public class Pokemon {
     private String type1;
     private String type2;
     private int generation; //form 1 to 6
-    private String rarity; //Starter, Common, Fossil, Leggendary, Pseudo-Leggendary, Mysterious
+    private String rarity; //Starter, Common, Fossil, Leggendary, Semi-Legendary, Mysterious
     private double height; //in mt
     private double weight; //in kg
     private String[] abilities = new String[3];
