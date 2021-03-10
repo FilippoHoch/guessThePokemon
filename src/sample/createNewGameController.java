@@ -14,59 +14,45 @@ import java.util.ResourceBundle;
 
 public class createNewGameController implements Initializable {
 
+    public static ArrayList<String> users = new ArrayList<>();
+    public static ArrayList<Boolean> generationResult = new ArrayList<>();
+    public static ArrayList<Boolean> evolutionStepResult = new ArrayList<>();
+    public static ArrayList<Boolean> rarityResult = new ArrayList<>();
     public String activeUser;
-    public ArrayList<String> users = new ArrayList<>();
-    public ArrayList<Boolean> generationResult = new ArrayList<>();
-    public ArrayList<Boolean> evolutionStepResult = new ArrayList<>();
-    public ArrayList<Boolean> rarityResult = new ArrayList<>();
-
+    public sampleController sampleController = new sampleController();
     //Generation
     CheckBox gen1CheckBox = new CheckBox("Generation 1");
     CustomMenuItem gen1Item = new CustomMenuItem(gen1CheckBox);
-
     CheckBox gen2CheckBox = new CheckBox("Generation 2");
     CustomMenuItem gen2Item = new CustomMenuItem(gen2CheckBox);
-
     CheckBox gen3CheckBox = new CheckBox("Generation 3");
     CustomMenuItem gen3Item = new CustomMenuItem(gen3CheckBox);
-
     CheckBox gen4CheckBox = new CheckBox("Generation 4");
     CustomMenuItem gen4Item = new CustomMenuItem(gen4CheckBox);
-
     CheckBox gen5CheckBox = new CheckBox("Generation 5");
     CustomMenuItem gen5Item = new CustomMenuItem(gen5CheckBox);
-
     CheckBox gen6CheckBox = new CheckBox("Generation 6");
     CustomMenuItem gen6Item = new CustomMenuItem(gen6CheckBox);
-
     CheckBox gen7CheckBox = new CheckBox("Generation 7");
     CustomMenuItem gen7Item = new CustomMenuItem(gen7CheckBox);
     //Evolution step
     CheckBox baseCheckBox = new CheckBox("Base");
     CustomMenuItem baseItem = new CustomMenuItem(baseCheckBox);
-
     CheckBox phase1CheckBox = new CheckBox("First evolution");
     CustomMenuItem phase1Item = new CustomMenuItem(phase1CheckBox);
-
     CheckBox phase2CheckBox = new CheckBox("Second evolution");
     CustomMenuItem phase2Item = new CustomMenuItem(phase2CheckBox);
-
     //Rarity
     CheckBox starterCheckBox = new CheckBox("Starter");
     CustomMenuItem starterItem = new CustomMenuItem(starterCheckBox);
-
     CheckBox commonCheckBox = new CheckBox("Common");
     CustomMenuItem commonItem = new CustomMenuItem(commonCheckBox);
-
     CheckBox fossilCheckBox = new CheckBox("Fossil");
     CustomMenuItem fossilItem = new CustomMenuItem(fossilCheckBox);
-
     CheckBox legendaryCheckBox = new CheckBox("Legendary");
     CustomMenuItem legendaryItem = new CustomMenuItem(legendaryCheckBox);
-
     CheckBox semiLegendaryCheckBox = new CheckBox("Semi-legendary");
     CustomMenuItem semiLegendaryItem = new CustomMenuItem(semiLegendaryCheckBox);
-
     CheckBox mysteriousCheckBox = new CheckBox("Mysterious");
     CustomMenuItem mysteriousItem = new CustomMenuItem(mysteriousCheckBox);
 
@@ -88,7 +74,6 @@ public class createNewGameController implements Initializable {
     @FXML
     private MenuButton rarity;
 
-    public sampleController sampleController = new sampleController();
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         File logoFile = new File("src/sample/img/createNewGame.png");
@@ -176,13 +161,11 @@ public class createNewGameController implements Initializable {
             sampleController.startGame();
             stage.close();
         }
-
     }
 
     @FXML
-    private void cancel() {
+    public void cancel() {
         Stage stage = (Stage) cancel.getScene().getWindow();
-        sampleController.startGame();
         stage.close();
 
     }

@@ -8,9 +8,9 @@ import java.util.Iterator;
 import java.util.Random;
 
 public class ListOfPokemon {
-    public final ArrayList<Pokemon> pokemonArrayList = new ArrayList<>();
-    public final ArrayList<String> abilityArrayList = new ArrayList<>();
-    public final ArrayList<Ability> pokemonAbilityArrayList = new ArrayList<>();
+    public static ArrayList<Pokemon> pokemonArrayList = new ArrayList<>();
+    public static ArrayList<String> abilityArrayList = new ArrayList<>();
+    public static ArrayList<Ability> pokemonAbilityArrayList = new ArrayList<>();
 
     ListOfPokemon() {
     }
@@ -57,7 +57,7 @@ public class ListOfPokemon {
             for (Iterator<Row> rowIterator = mySheet.rowIterator(); rowIterator.hasNext(); ) {
                 Iterator<Cell> cellIterator = rowIterator.next().cellIterator();
                 int pokemonId = (int) Math.round(Double.parseDouble(cellIterator.next().toString()));
-                pokemonId --;
+                pokemonId--;
                 int abilityId = (int) Math.round(Double.parseDouble(cellIterator.next().toString()));
                 pokemonAbilityArrayList.add(new Ability(pokemonId));
                 pokemonAbilityArrayList.get(pokemonId).addAbilitySlots(abilityId);
@@ -81,40 +81,36 @@ public class ListOfPokemon {
     }
 
     public Pokemon takeRandomPokemon() {
-        createNewGameController controller = new createNewGameController();
-        ArrayList<Pokemon> randomArrayList = new ArrayList<>();
-
-        //ArrayList<Pokemon> pokemons = (ArrayList<Pokemon>) pokemonArrayList.clone();
-        for (int i = 0; i < pokemonArrayList.size(); i++){
-            randomArrayList.add(pokemonArrayList.get(i));
-        }
-        String[] rar = {"Starter", "Common", "Legendary", "Pseudo-Legendary", "Mysterious"};
+        ArrayList<Pokemon> pokemons = (ArrayList<Pokemon>) pokemonArrayList.clone();
+        String[] rar = {"Starter", "Common", "Fossil", "Legendary", "Pseudo-Legendary", "Mysterious"};
         Random random = new Random();
-        for(int j = 0; j < controller.generationResult.size(); j++){
-            for(int i = 0; i < randomArrayList.size(); i++){
-                if (!controller.generationResult.get(i) && randomArrayList.get(i).getGeneration() == j){
-                    randomArrayList.remove(i);
+        for (int j = 0; j < createNewGameController.generationResult.size(); j++) {
+            for (int i = 0; i < pokemons.size(); i++) {
+                if (!createNewGameController.generationResult.get(j) && pokemons.get(i).getGeneration() == j + 1) {
+                    pokemons.remove(i);
                     i--;
                 }
             }
         }
-        for(int j = 0; j < controller.evolutionStepResult.size(); j++){
-            for(int i = 0; i < randomArrayList.size(); i++){
-                if (!controller.evolutionStepResult.get(i) && randomArrayList.get(i).getEvoPhase() == j){
-                    randomArrayList.remove(i);
+        for (int j = 0; j < createNewGameController.evolutionStepResult.size(); j++) {
+            for (int i = 0; i < pokemons.size(); i++) {
+                if (!createNewGameController.evolutionStepResult.get(j) && pokemons.get(i).getEvoPhase() == j) {
+                    pokemons.remove(i);
                     i--;
                 }
             }
         }
-        for(int j = 0; j < controller.rarityResult.size(); j++){
-            for(int i = 0; i < randomArrayList.size(); i++){
-                if (!controller.rarityResult.get(i) && randomArrayList.get(i).getRarity().equalsIgnoreCase(rar[i])){
-                    randomArrayList.remove(i);
+        for (int j = 0; j < createNewGameController.rarityResult.size(); j++) {
+            for (int i = 0; i < pokemons.size(); i++) {
+                if (!createNewGameController.rarityResult.get(j) &&
+                        pokemons.get(i).getRarity().equalsIgnoreCase(rar[i])) {
+                    pokemons.remove(i);
                     i--;
                 }
             }
         }
-        Pokemon pokemon = randomArrayList.get(random.nextInt(randomArrayList.size()));
+        System.out.println(pokemons.size());
+        Pokemon pokemon = pokemons.get(random.nextInt(pokemons.size()));
         return pokemon;
     }
 

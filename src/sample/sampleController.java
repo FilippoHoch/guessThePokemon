@@ -1,5 +1,6 @@
 package sample;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -24,18 +25,23 @@ import java.util.ResourceBundle;
 
 public class sampleController implements Initializable {
 
+
     @FXML
-    private Label generation;
+    public Label weight;
     @FXML
-    private Label weight;
+    public Label height;
     @FXML
-    private Label height;
+    public Label type;
     @FXML
-    private Label type;
+    public Label evolutionStep;
     @FXML
-    private Label evolutionStep;
+    public Label ability;
     @FXML
-    private Label ability;
+    public Label generation;
+
+    public ListOfPokemon conversion = new ListOfPokemon();
+    public Image[] imagesSprite = new Image[900];
+    public boolean firstTime = true;
     @FXML
     private ImageView outline;
     @FXML
@@ -65,14 +71,18 @@ public class sampleController implements Initializable {
         footprint.setImage(unknownImage);
         animatedSprite.setImage(unknownImage);
         outline.setImage(unknownImage);
+        conversion.excelReading();
+        weight.setText("???");
+        height.setText("???");
+        type.setText("???");
+        evolutionStep.setText("???");
+        ability.setText("???");
+
     }
-    public ListOfPokemon conversion = new ListOfPokemon();
-    public Image[] imagesSprite = new Image[900];
-    public boolean firstTime = true;
+
     @FXML
     private void newGame() throws IOException {
-        conversion.excelReading();
-        if(firstTime){
+        if (firstTime) {
             firstTime = false;
             for (int i = 0; i < conversion.pokemonArrayList.size(); i++) {
                 listView.getItems().add(conversion.pokemonArrayList.get(i).getName());
@@ -117,11 +127,10 @@ public class sampleController implements Initializable {
         stage.initModality(Modality.WINDOW_MODAL);
         stage.setResizable(false);
         stage.show();
-        stage.setOnCloseRequest(we -> startGame());
     }
 
     @FXML
-    private void leaderBoards(javafx.event.ActionEvent actionEvent) throws IOException {
+    private void leaderBoards() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/sample/ranking.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
@@ -140,8 +149,8 @@ public class sampleController implements Initializable {
     }
 
     public void startGame(){
-
         Pokemon randomPokemon = conversion.takeRandomPokemon();
         generation.setText(String.valueOf(randomPokemon.getGeneration()));
     }
+
 }
