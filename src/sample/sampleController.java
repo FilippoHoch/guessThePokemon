@@ -1,6 +1,5 @@
 package sample;
 
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -13,7 +12,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 
 import java.io.File;
 import java.io.IOException;
@@ -68,12 +66,11 @@ public class sampleController implements Initializable {
         animatedSprite.setImage(unknownImage);
         outline.setImage(unknownImage);
     }
-    public ListOfPokemon conversion;
+    public ListOfPokemon conversion = new ListOfPokemon();
     public Image[] imagesSprite = new Image[900];
     public boolean firstTime = true;
     @FXML
     private void newGame() throws IOException {
-        conversion = new ListOfPokemon();
         conversion.excelReading();
         if(firstTime){
             firstTime = false;
@@ -143,6 +140,8 @@ public class sampleController implements Initializable {
     }
 
     public void startGame(){
-        conversion.takeRandomPokemon();
+
+        Pokemon randomPokemon = conversion.takeRandomPokemon();
+        generation.setText(String.valueOf(randomPokemon.getGeneration()));
     }
 }

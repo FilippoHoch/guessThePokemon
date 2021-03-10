@@ -80,19 +80,42 @@ public class ListOfPokemon {
         return numeroAbilità;
     }
 
-    public Pokemon takeRandomPokemon(boolean[] generation, boolean[] evoPhase, boolean[] rarity) {
-        createNewGameController createNewGameController = new createNewGameController();
-        ArrayList<Pokemon> pokemons = new ArrayList<>(pokemonArrayList);
+    public Pokemon takeRandomPokemon() {
+        createNewGameController controller = new createNewGameController();
+        ArrayList<Pokemon> randomArrayList = new ArrayList<>();
+
+        //ArrayList<Pokemon> pokemons = (ArrayList<Pokemon>) pokemonArrayList.clone();
+        for (int i = 0; i < pokemonArrayList.size(); i++){
+            randomArrayList.add(pokemonArrayList.get(i));
+        }
+        String[] rar = {"Starter", "Common", "Legendary", "Pseudo-Legendary", "Mysterious"};
         Random random = new Random();
-        Pokemon randomPokemon;
-        for(int j = 0; j < generation.length; j++){ 
-            for(int i = 0; i < pokemonArrayList.toArray().length; i++){
-                i
+        for(int j = 0; j < controller.generationResult.size(); j++){
+            for(int i = 0; i < randomArrayList.size(); i++){
+                if (!controller.generationResult.get(i) && randomArrayList.get(i).getGeneration() == j){
+                    randomArrayList.remove(i);
+                    i--;
+                }
             }
         }
-            randomPokemon = pokemonArrayList.get(random.nextInt(pokemons.toArray().length));
-
-        return randomPokemon;
+        for(int j = 0; j < controller.evolutionStepResult.size(); j++){
+            for(int i = 0; i < randomArrayList.size(); i++){
+                if (!controller.evolutionStepResult.get(i) && randomArrayList.get(i).getEvoPhase() == j){
+                    randomArrayList.remove(i);
+                    i--;
+                }
+            }
+        }
+        for(int j = 0; j < controller.rarityResult.size(); j++){
+            for(int i = 0; i < randomArrayList.size(); i++){
+                if (!controller.rarityResult.get(i) && randomArrayList.get(i).getRarity().equalsIgnoreCase(rar[i])){
+                    randomArrayList.remove(i);
+                    i--;
+                }
+            }
+        }
+        Pokemon pokemon = randomArrayList.get(random.nextInt(randomArrayList.size()));
+        return pokemon;
     }
 
     public int getScore(int aiutiDati, int pokemonPossibili) {
