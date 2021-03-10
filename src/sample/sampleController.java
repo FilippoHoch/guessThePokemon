@@ -1,20 +1,26 @@
 package sample;
 
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ResourceBundle;
 
 
@@ -62,12 +68,50 @@ public class sampleController implements Initializable {
         animatedSprite.setImage(unknownImage);
         outline.setImage(unknownImage);
     }
-
+    public ListOfPokemon conversion;
+    public Image[] imagesSprite = new Image[900];
+    public boolean firstTime = true;
     @FXML
-    private void newGame(javafx.event.ActionEvent actionEvent) throws IOException {
+    private void newGame() throws IOException {
+        conversion = new ListOfPokemon();
+        conversion.excelReading();
+        if(firstTime){
+            firstTime = false;
+            for (int i = 0; i < conversion.pokemonArrayList.size(); i++) {
+                listView.getItems().add(conversion.pokemonArrayList.get(i).getName());
+
+                Path imageFileSprite = Paths.get(
+                        "src/sample/img/pokemonSpriteDataBase/" +
+                                conversion.pokemonArrayList.get(i).getName().toLowerCase() + ".png");
+                try {
+                    imagesSprite[i] = new Image(imageFileSprite.toUri().toURL().toExternalForm());
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                }
+                listView.setCellFactory(param -> new ListCell<>() {
+                    private final ImageView imageView = new ImageView();
+
+                    @Override
+                    public void updateItem(String name, boolean empty) {
+                        super.updateItem(name, empty);
+                        if (empty) {
+                            setText(null);
+                            setGraphic(null);
+                        } else {
+                            for (int j = 0; j < conversion.pokemonArrayList.size(); j++) {
+                                if (conversion.nameToInt(name) == j) {
+                                    imageView.setImage(imagesSprite[j]);
+                                }
+                            }
+                            setText(name);
+                            setGraphic(imageView);
+                        }
+                    }
+                });
+            }
+        }
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/sample/createNewGame.fxml"));
         Parent root = loader.load();
-        createNewGameController sceneController = loader.getController();
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.setTitle("New Game");
@@ -76,7 +120,7 @@ public class sampleController implements Initializable {
         stage.initModality(Modality.WINDOW_MODAL);
         stage.setResizable(false);
         stage.show();
-
+        stage.setOnCloseRequest(we -> startGame());
     }
 
     @FXML
@@ -96,5 +140,9 @@ public class sampleController implements Initializable {
     @FXML
     private void selectElementOfList() {
 
+    }
+
+    public void startGame(){
+        conversion.takeRandomPokemon();
     }
 }

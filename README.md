@@ -68,6 +68,7 @@ contenente le informazioni relative a ciascun pokémon.
 - Inserire la lista Pokemon
 - Configurare il NewGame
 - Implementazione tableView LeaderBoard
+- Gioco
 
 ## Autori
 

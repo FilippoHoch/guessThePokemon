@@ -88,13 +88,12 @@ public class createNewGameController implements Initializable {
     @FXML
     private MenuButton rarity;
 
+    public sampleController sampleController = new sampleController();
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         File logoFile = new File("src/sample/img/createNewGame.png");
         Image logoImage = new Image(logoFile.toURI().toString());
         createNewGameImage.setImage(logoImage);
-        CheckBox gen1CheckBox = new CheckBox("Generation 1");
-        CustomMenuItem gen1Item = new CustomMenuItem(gen1CheckBox);
         gen1Item.setHideOnClick(false);
         gen1CheckBox.setSelected(true);
 
@@ -171,10 +170,10 @@ public class createNewGameController implements Initializable {
         Stage stage = (Stage) cancel.getScene().getWindow();
         activeUser = nicknameField.getText();
         users.add(activeUser);
-        if(activeUser.isEmpty()){
+        if (activeUser.isEmpty()) {
             nicknameField.setPromptText("Missing Nickname");
-        }
-        else{
+        } else {
+            sampleController.startGame();
             stage.close();
         }
 
@@ -183,10 +182,10 @@ public class createNewGameController implements Initializable {
     @FXML
     private void cancel() {
         Stage stage = (Stage) cancel.getScene().getWindow();
+        sampleController.startGame();
         stage.close();
+
     }
-
-
 
 
 }
