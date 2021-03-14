@@ -144,4 +144,5 @@ public class sampleController implements Initializable {
         Pokemon randomPokemon = conversion.takeRandomPokemon();
         generation.setText(String.valueOf(randomPokemon.getGeneration()));
     }
+    //solo per il powerpoint su GitHub
 }
