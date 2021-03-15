@@ -158,7 +158,6 @@ public class createNewGameController implements Initializable {
         if (activeUser.isEmpty()) {
             nicknameField.setPromptText("Missing Nickname");
         } else {
-            sampleController.startGame();
             stage.close();
         }
     }
@@ -167,7 +166,6 @@ public class createNewGameController implements Initializable {
     public void cancel() {
         Stage stage = (Stage) cancel.getScene().getWindow();
         stage.close();
-
     }
 
 

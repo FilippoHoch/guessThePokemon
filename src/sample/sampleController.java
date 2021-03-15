@@ -1,9 +1,7 @@
 package sample;
 
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -17,13 +15,11 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
-import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ResourceBundle;
 
 
-public class sampleController implements Initializable {
+public class sampleController {
 
 
     @FXML
@@ -38,58 +34,56 @@ public class sampleController implements Initializable {
     public Label ability;
     @FXML
     public Label generation;
+    @FXML
+    public Label rarity;
+    @FXML
+    public Label name;
 
     public ListOfPokemon conversion = new ListOfPokemon();
     public Image[] imagesSprite = new Image[900];
     public boolean firstTime = true;
+    public Pokemon randomPokemon;
+
+
     @FXML
-    private ImageView outline;
+    public ImageView artwork;
     @FXML
-    private ImageView animatedSprite;
+    public ImageView outline;
     @FXML
-    private ImageView footprint;
+    public ImageView animatedSprite;
     @FXML
-    private ImageView artwork;
+    public ImageView footprint;
     @FXML
-    private ImageView cover;
+    public ImageView cover;
+
+    public int nTry = 0;
     @FXML
     private ImageView logo;
     @SuppressWarnings("FieldMayBeFinal")
     @FXML
     private ListView<String> listView = new ListView<>();
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        File logoFile = new File("src/sample/img/logo.png");
-        File coverAnimatedFile = new File("src/sample/img/coverAnimated.gif");
-        File unknownFile = new File("src/sample/img/unknown.png");
-        Image logoImage = new Image(logoFile.toURI().toString());
-        Image coverAnimatedImage = new Image(coverAnimatedFile.toURI().toString());
-        Image unknownImage = new Image(unknownFile.toURI().toString());
-        logo.setImage(logoImage);
-        cover.setImage(coverAnimatedImage);
+    @FXML
+    public void initialize() {
+        Image unknownImage = new Image(new File("src/sample/img/unknown.png").toURI().toString());
+        logo.setImage(new Image(new File("src/sample/img/logo.png").toURI().toString()));
+        cover.setImage(new Image(new File("src/sample/img/coverAnimated.gif").toURI().toString()));
         footprint.setImage(unknownImage);
         animatedSprite.setImage(unknownImage);
         outline.setImage(unknownImage);
         conversion.excelReading();
-        weight.setText("???");
-        height.setText("???");
-        type.setText("???");
-        evolutionStep.setText("???");
-        ability.setText("???");
-
     }
 
     @FXML
     private void newGame() throws IOException {
         if (firstTime) {
             firstTime = false;
-            for (int i = 0; i < conversion.pokemonArrayList.size(); i++) {
-                listView.getItems().add(conversion.pokemonArrayList.get(i).getName());
+            for (int i = 0; i < ListOfPokemon.pokemonArrayList.size(); i++) {
+                listView.getItems().add(ListOfPokemon.pokemonArrayList.get(i).getName());
 
                 Path imageFileSprite = Paths.get(
                         "src/sample/img/pokemonSpriteDataBase/" +
-                                conversion.pokemonArrayList.get(i).getName().toLowerCase() + ".png");
+                                ListOfPokemon.pokemonArrayList.get(i).getName().toLowerCase() + ".png");
                 try {
                     imagesSprite[i] = new Image(imageFileSprite.toUri().toURL().toExternalForm());
                 } catch (MalformedURLException e) {
@@ -105,7 +99,7 @@ public class sampleController implements Initializable {
                             setText(null);
                             setGraphic(null);
                         } else {
-                            for (int j = 0; j < conversion.pokemonArrayList.size(); j++) {
+                            for (int j = 0; j < ListOfPokemon.pokemonArrayList.size(); j++) {
                                 if (conversion.nameToInt(name) == j) {
                                     imageView.setImage(imagesSprite[j]);
                                 }
@@ -127,6 +121,9 @@ public class sampleController implements Initializable {
         stage.initModality(Modality.WINDOW_MODAL);
         stage.setResizable(false);
         stage.show();
+        stage.setOnHiding(event -> {
+            startGame();
+        });
     }
 
     @FXML
@@ -145,12 +142,88 @@ public class sampleController implements Initializable {
 
     @FXML
     private void selectElementOfList() {
+        String pokemonChoices = listView.getSelectionModel().selectedItemProperty().getValue();
+        if (pokemonChoices.equalsIgnoreCase(randomPokemon.getName())) {
+            showParameter(9);
+        } else {
+            nTry++;
+            showParameter(nTry);
+        }
 
     }
 
-    public void startGame(){
-        Pokemon randomPokemon = conversion.takeRandomPokemon();
-        generation.setText(String.valueOf(randomPokemon.getGeneration()));
+    public void showParameter(int i) {
+        if (i >= 10) {
+        } else if (i > 0) {
+            weight.setText(String.valueOf(randomPokemon.getWeight()));
+            height.setText(String.valueOf(randomPokemon.getHeight()));
+            if (i > 1) {
+                type.setText(randomPokemon.getType1());
+                if (i > 2) {
+                    evolutionStep.setText(String.valueOf(randomPokemon.getEvoPhase()));
+                    if (i > 3) {
+                        type.setText(type.getText().concat(", " + randomPokemon.getType2()));
+                        if (i > 4) {
+                            rarity.setText(randomPokemon.getRarity());
+                            if (i > 5) {
+                                footprint.setImage(new Image(
+                                        new File("src/sample/img/footprints/" + randomPokemon.getId() + ".png").toURI()
+                                                .toString()));
+                                outline.setImage(conversion.pokemonShape.get(randomPokemon.getId() - 1));
+                                if (i > 6) {
+                                    ability.setText(randomPokemon.randomAbility);
+                                    if (i > 7) {
+                                        String url;
+                                        if (randomPokemon.getId() + 1 < 10) {
+                                            url = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/00" +
+                                                    (randomPokemon.getId()) + ".png";
+                                        } else if (randomPokemon.getId() + 1 < 100) {
+                                            url = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/0" +
+                                                    (randomPokemon.getId()) + ".png";
+                                        } else {
+                                            url = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/" +
+                                                    (randomPokemon.getId()) + ".png";
+                                        }
+                                        artwork.setImage(new Image(url));
+                                        if (i > 8) {
+                                            cover.setImage(new Image(new File(
+                                                    "src/sample/img/GameCover/cover" + randomPokemon.getGeneration() +
+                                                            "generation.jpg").toURI().toString()));
+                                            animatedSprite.setImage(new Image(
+                                                    "https://play.pokemonshowdown.com/sprites/bwani/" +
+                                                            randomPokemon.getName().toLowerCase() + ".gif"));
+                                            name.setText(randomPokemon.getName());
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public void startGame() {
+        nTry=0;
+        randomPokemon = conversion.takeRandomPokemon();
+        randomPokemon.randomAbility = conversion.randomAbility(randomPokemon);
+        generation.setText(Integer.toString(randomPokemon.getGeneration()));
+        Image unknownImage = new Image(new File("src/sample/img/unknown.png").toURI().toString());
+        cover.setImage(new Image(new File("src/sample/img/coverAnimated.gif").toURI().toString()));
+        footprint.setImage(unknownImage);
+        animatedSprite.setImage(unknownImage);
+        outline.setImage(unknownImage);
+        artwork.setImage(null);
+        weight.setText("???");
+        height.setText("???");
+        type.setText("???");
+        ability.setText("???");
+        rarity.setText("???");
+        evolutionStep.setText("???");
+        name.setText("???");
+
+
     }
 
 }
