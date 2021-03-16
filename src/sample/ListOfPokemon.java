@@ -13,6 +13,7 @@ public class ListOfPokemon {
     public static ArrayList<String> abilityArrayList = new ArrayList<>();
     public static ArrayList<Ability> pokemonAbilityArrayList = new ArrayList<>();
     public static ArrayList<Image> pokemonShape = new ArrayList<>();
+    public static ArrayList<Pokemon> filteredPokemonArrayList;
 
     ListOfPokemon() {
     }
@@ -100,7 +101,7 @@ public class ListOfPokemon {
         return ability;
     }
 
-    public  ArrayList<Pokemon> possiblePokemons() {
+    public ArrayList<Pokemon> filteredPokemons() {
         ArrayList<Pokemon> pokemons = (ArrayList<Pokemon>) pokemonArrayList.clone();
         String[] rar = {"Starter", "Common", "Fossil", "Legendary", "Pseudo-Legendary", "Mysterious"};
         for (int j = 0; j < createNewGameController.generationResult.size(); j++) {
@@ -133,7 +134,7 @@ public class ListOfPokemon {
 
     public Pokemon takeRandomPokemon() {
         Random random = new Random();
-        return possiblePokemons().get(random.nextInt(possiblePokemons().size()));
+        return filteredPokemons().get(random.nextInt(filteredPokemons().size()));
     }
 
     /**

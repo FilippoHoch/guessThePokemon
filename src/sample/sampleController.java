@@ -56,7 +56,7 @@ public class sampleController {
     @FXML
     public ImageView cover;
 
-    public int nTry = 0;
+    public static int nTry = 0;
     @FXML
     private ImageView logo;
     @SuppressWarnings("FieldMayBeFinal")
@@ -169,7 +169,7 @@ public class sampleController {
                                 footprint.setImage(new Image(
                                         new File("src/sample/img/footprints/" + randomPokemon.getId() + ".png").toURI()
                                                 .toString()));
-                                outline.setImage(conversion.pokemonShape.get(randomPokemon.getId() - 1));
+                                outline.setImage(ListOfPokemon.pokemonShape.get(randomPokemon.getId() - 1));
                                 if (i > 6) {
                                     ability.setText(randomPokemon.randomAbility);
                                     if (i > 7) {
@@ -206,6 +206,7 @@ public class sampleController {
 
     public void startGame() {
         nTry=0;
+        ListOfPokemon.filteredPokemonArrayList = conversion.filteredPokemons();
         randomPokemon = conversion.takeRandomPokemon();
         randomPokemon.randomAbility = conversion.randomAbility(randomPokemon);
         generation.setText(Integer.toString(randomPokemon.getGeneration()));
