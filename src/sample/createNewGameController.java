@@ -19,7 +19,6 @@ public class createNewGameController implements Initializable {
     public static ArrayList<Boolean> evolutionStepResult = new ArrayList<>();
     public static ArrayList<Boolean> rarityResult = new ArrayList<>();
     public String activeUser;
-    public sampleController sampleController = new sampleController();
     //Generation
     CheckBox gen1CheckBox = new CheckBox("Generation 1");
     CustomMenuItem gen1Item = new CustomMenuItem(gen1CheckBox);
@@ -33,8 +32,6 @@ public class createNewGameController implements Initializable {
     CustomMenuItem gen5Item = new CustomMenuItem(gen5CheckBox);
     CheckBox gen6CheckBox = new CheckBox("Generation 6");
     CustomMenuItem gen6Item = new CustomMenuItem(gen6CheckBox);
-    CheckBox gen7CheckBox = new CheckBox("Generation 7");
-    CustomMenuItem gen7Item = new CustomMenuItem(gen7CheckBox);
     //Evolution step
     CheckBox baseCheckBox = new CheckBox("Base");
     CustomMenuItem baseItem = new CustomMenuItem(baseCheckBox);
@@ -74,6 +71,9 @@ public class createNewGameController implements Initializable {
     @FXML
     private MenuButton rarity;
 
+    @FXML
+    private Label noArguments;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         File logoFile = new File("src/sample/img/createNewGame.png");
@@ -96,10 +96,7 @@ public class createNewGameController implements Initializable {
 
         gen6Item.setHideOnClick(false);
         gen6CheckBox.setSelected(true);
-
-        gen7Item.setHideOnClick(false);
-        gen7CheckBox.setSelected(true);
-        generation.getItems().setAll(gen1Item, gen2Item, gen3Item, gen4Item, gen5Item, gen6Item, gen7Item);
+        generation.getItems().setAll(gen1Item, gen2Item, gen3Item, gen4Item, gen5Item, gen6Item);
 
         baseItem.setHideOnClick(false);
         baseCheckBox.setSelected(true);
@@ -140,7 +137,6 @@ public class createNewGameController implements Initializable {
         generationResult.add(gen4CheckBox.isSelected());
         generationResult.add(gen5CheckBox.isSelected());
         generationResult.add(gen6CheckBox.isSelected());
-        generationResult.add(gen7CheckBox.isSelected());
         evolutionStepResult.clear();
         evolutionStepResult.add(baseCheckBox.isSelected());
         evolutionStepResult.add(phase1CheckBox.isSelected());
@@ -157,7 +153,13 @@ public class createNewGameController implements Initializable {
         users.add(activeUser);
         if (activeUser.isEmpty()) {
             nicknameField.setPromptText("Missing Nickname");
-        } else {
+        }
+        else if (checkGeneration() || checkEvolutionStep() || checkRarity()){
+            boolean temp = checkGeneration();
+            temp = checkEvolutionStep();
+            temp = checkRarity();
+        }
+        else {
             stage.close();
         }
     }
@@ -168,5 +170,36 @@ public class createNewGameController implements Initializable {
         stage.close();
     }
 
+    public boolean checkGeneration(){
+        if (!gen1CheckBox.isSelected() && !gen2CheckBox.isSelected() && !gen3CheckBox.isSelected() && !gen4CheckBox.isSelected() && !gen5CheckBox.isSelected() && !gen6CheckBox.isSelected()){
+            noArguments.setText("No arguments selected for Generation");
+            return true;
+        }
+        return false;
+    }
 
+    public boolean checkEvolutionStep(){
+        if (!baseCheckBox.isSelected() && !phase1CheckBox.isSelected() && !phase2CheckBox.isSelected()){
+            if(noArguments.getText().equals("No arguments selected for Generation"))
+                noArguments.setText(noArguments.getText().concat(", Evolution step"));
+            else
+                noArguments.setText("No arguments selected for Evolution step");
+            return true;
+        }
+        return false;
+    }
+
+    public boolean checkRarity(){
+        if (!starterCheckBox.isSelected() && !commonCheckBox.isSelected() && !fossilCheckBox.isSelected() && !legendaryCheckBox.isSelected() && !semiLegendaryCheckBox.isSelected() && !mysteriousCheckBox.isSelected()){
+            if(noArguments.getText().equals("No arguments selected for Generation, Evolution step") || noArguments.getText().equals("No arguments selected for Evolution step")){
+                noArguments.setText(noArguments.getText().concat(", Rarity"));
+            }
+            else if(noArguments.getText().equals("No arguments selected for Generation"))
+                noArguments.setText(noArguments.getText().concat(", Rarity"));
+            else
+                noArguments.setText("No arguments selected for Evolution step");
+            return true;
+        }
+        return false;
+    }
 }
