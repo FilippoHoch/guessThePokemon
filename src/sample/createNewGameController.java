@@ -56,6 +56,7 @@ public class createNewGameController implements Initializable {
 
     @FXML
     private Button cancel;
+
     @FXML
     private ImageView createNewGameImage;
 

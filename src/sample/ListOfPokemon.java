@@ -100,11 +100,9 @@ public class ListOfPokemon {
         return ability;
     }
 
-
-    public Pokemon takeRandomPokemon() {
+    public  ArrayList<Pokemon> possiblePokemons() {
         ArrayList<Pokemon> pokemons = (ArrayList<Pokemon>) pokemonArrayList.clone();
         String[] rar = {"Starter", "Common", "Fossil", "Legendary", "Pseudo-Legendary", "Mysterious"};
-        Random random = new Random();
         for (int j = 0; j < createNewGameController.generationResult.size(); j++) {
             for (int i = 0; i < pokemons.size(); i++) {
                 if (!createNewGameController.generationResult.get(j) && pokemons.get(i).getGeneration() == j + 1) {
@@ -123,21 +121,20 @@ public class ListOfPokemon {
         }
         for (int j = 0; j < createNewGameController.rarityResult.size(); j++) {
             for (int i = 0; i < pokemons.size(); i++) {
-                    if (!createNewGameController.rarityResult.get(j) &&
-                            pokemons.get(i).getRarity().equalsIgnoreCase(rar[j])) {
-                        pokemons.remove(i);
-                        i--;
-                    }
+                if (!createNewGameController.rarityResult.get(j) &&
+                        pokemons.get(i).getRarity().equalsIgnoreCase(rar[j])) {
+                    pokemons.remove(i);
+                    i--;
+                }
             }
         }
-        Pokemon pokemon = pokemons.get(random.nextInt(pokemons.size()));
-        return pokemon;
+        return pokemons;
     }
 
-    public int getScore(int aiutiDati, int pokemonPossibili) {
-        return ((pokemonPossibili / 721) + ((9 - aiutiDati) / 8)) * 50;
+    public Pokemon takeRandomPokemon() {
+        Random random = new Random();
+        return possiblePokemons().get(random.nextInt(possiblePokemons().size()));
     }
-
 
     /**
      * Transforma il nome con il relativo valore numerico
