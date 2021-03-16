@@ -1,7 +1,11 @@
 package sample;
 
+import java.util.ArrayList;
+
 public class Pokemon {
 
+    public String[] abilities = new String[3];
+    public String randomAbility;
     private int id;
     private String name;
     private int evoPhase; //base = 0; fase1 = 1; fase2 = 2
@@ -11,7 +15,6 @@ public class Pokemon {
     private String rarity; //Starter, Common, Fossil, Leggendary, Semi-Legendary, Mysterious
     private double height; //in mt
     private double weight; //in kg
-    private String[] abilities = new String[3];
 
     public Pokemon(int id, String name, int evoPhase, String type1, String type2,
                    int generation, String rarity, double height, double weight) {
@@ -98,13 +101,13 @@ public class Pokemon {
         this.weight = weight;
     }
 
-    public void setAbilities(String ability0, String ability1, String ability2) {
-        this.abilities[0] = ability0;
-        this.abilities[1] = ability1;
-        this.abilities[2] = ability2;
+    public void setAbilities(ArrayList<Ability> pokemonAbilityArrayList, ArrayList<String> abilityArrayList) {
+        abilities[0] = abilityArrayList.get(pokemonAbilityArrayList.get(getId()).abilitySlots.get(0));
+        if (pokemonAbilityArrayList.get(getId()).abilitySlots.size() == 2) {
+            abilities[1] = abilityArrayList.get(pokemonAbilityArrayList.get(getId()).abilitySlots.get(1));
+        } else if (pokemonAbilityArrayList.get(getId()).abilitySlots.size() == 3) {
+            abilities[2] = abilityArrayList.get(pokemonAbilityArrayList.get(getId()).abilitySlots.get(2));
+        }
     }
 
-    public void setAbilities(String[] abilities) {
-        this.abilities = abilities;
-    }
 }
