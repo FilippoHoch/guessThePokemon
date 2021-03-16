@@ -68,8 +68,6 @@ Nella terza settimana, siamo riusciti a completare gran parte del codice, implem
 
 ### Grafica:
 
-- check no arguments
-- list view only with selected pokemon
 - Implementazione tableView LeaderBoard
 
 ## Autori

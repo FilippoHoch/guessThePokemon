@@ -22,6 +22,7 @@ import java.nio.file.Paths;
 public class sampleController {
 
 
+    public static boolean work = false;
     @FXML
     public Label weight;
     @FXML
@@ -76,41 +77,6 @@ public class sampleController {
 
     @FXML
     private void newGame() throws IOException {
-        if (firstTime) {
-            firstTime = false;
-            for (int i = 0; i < ListOfPokemon.pokemonArrayList.size(); i++) {
-                listView.getItems().add(ListOfPokemon.pokemonArrayList.get(i).getName());
-
-                Path imageFileSprite = Paths.get(
-                        "src/sample/img/pokemonSpriteDataBase/" +
-                                ListOfPokemon.pokemonArrayList.get(i).getName().toLowerCase() + ".png");
-                try {
-                    imagesSprite[i] = new Image(imageFileSprite.toUri().toURL().toExternalForm());
-                } catch (MalformedURLException e) {
-                    e.printStackTrace();
-                }
-                listView.setCellFactory(param -> new ListCell<>() {
-                    private final ImageView imageView = new ImageView();
-
-                    @Override
-                    public void updateItem(String name, boolean empty) {
-                        super.updateItem(name, empty);
-                        if (empty) {
-                            setText(null);
-                            setGraphic(null);
-                        } else {
-                            for (int j = 0; j < ListOfPokemon.pokemonArrayList.size(); j++) {
-                                if (conversion.nameToInt(name) == j) {
-                                    imageView.setImage(imagesSprite[j]);
-                                }
-                            }
-                            setText(name);
-                            setGraphic(imageView);
-                        }
-                    }
-                });
-            }
-        }
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/sample/createNewGame.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
@@ -122,7 +88,9 @@ public class sampleController {
         stage.setResizable(false);
         stage.show();
         stage.setOnHiding(event -> {
-            startGame();
+            if (work)
+                startGame();
+            work = false;
         });
     }
 
@@ -137,6 +105,8 @@ public class sampleController {
         stage.initOwner(currentStage);
         stage.initModality(Modality.WINDOW_MODAL);
         stage.setResizable(false);
+        rankingController.updateUsers();
+
         stage.show();
     }
 
@@ -205,8 +175,41 @@ public class sampleController {
     }
 
     public void startGame() {
-        nTry=0;
+        listView.getItems().clear();
         ListOfPokemon.filteredPokemonArrayList = conversion.filteredPokemons();
+        for (int i = 0; i < ListOfPokemon.filteredPokemonArrayList.size(); i++) {
+            listView.getItems().add(ListOfPokemon.filteredPokemonArrayList.get(i).getName());
+
+            Path imageFileSprite = Paths.get(
+                    "src/sample/img/pokemonSpriteDataBase/" +
+                            ListOfPokemon.filteredPokemonArrayList.get(i).getName().toLowerCase() + ".png");
+            try {
+                imagesSprite[i] = new Image(imageFileSprite.toUri().toURL().toExternalForm());
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+            listView.setCellFactory(param -> new ListCell<>() {
+                private final ImageView imageView = new ImageView();
+
+                @Override
+                public void updateItem(String name, boolean empty) {
+                    super.updateItem(name, empty);
+                    if (empty) {
+                        setText(null);
+                        setGraphic(null);
+                    } else {
+                        for (int j = 0; j < ListOfPokemon.filteredPokemonArrayList.size(); j++) {
+                            if (ListOfPokemon.filteredPokemonArrayList.get(j).getName().equals(name)) {
+                                imageView.setImage(imagesSprite[j]);
+                            }
+                        }
+                        setText(name);
+                        setGraphic(imageView);
+                    }
+                }
+            });
+        }
+        nTry = 0;
         randomPokemon = conversion.takeRandomPokemon();
         randomPokemon.randomAbility = conversion.randomAbility(randomPokemon);
         generation.setText(Integer.toString(randomPokemon.getGeneration()));

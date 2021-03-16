@@ -14,7 +14,6 @@ import java.util.ResourceBundle;
 
 public class createNewGameController implements Initializable {
 
-    public static ArrayList<String> users = new ArrayList<>();
     public static ArrayList<Boolean> generationResult = new ArrayList<>();
     public static ArrayList<Boolean> evolutionStepResult = new ArrayList<>();
     public static ArrayList<Boolean> rarityResult = new ArrayList<>();
@@ -151,16 +150,19 @@ public class createNewGameController implements Initializable {
         rarityResult.add(mysteriousCheckBox.isSelected());
         Stage stage = (Stage) cancel.getScene().getWindow();
         activeUser = nicknameField.getText();
-        users.add(activeUser);
+        rankingController.users.add(new User(activeUser));
+        noArguments.setText("");
         if (activeUser.isEmpty()) {
             nicknameField.setPromptText("Missing Nickname");
         }
         else if (checkGeneration() || checkEvolutionStep() || checkRarity()){
+            noArguments.setText("");
             boolean temp = checkGeneration();
             temp = checkEvolutionStep();
             temp = checkRarity();
         }
         else {
+            sampleController.work = true;
             stage.close();
         }
     }
@@ -172,6 +174,7 @@ public class createNewGameController implements Initializable {
     }
 
     public boolean checkGeneration(){
+
         if (!gen1CheckBox.isSelected() && !gen2CheckBox.isSelected() && !gen3CheckBox.isSelected() && !gen4CheckBox.isSelected() && !gen5CheckBox.isSelected() && !gen6CheckBox.isSelected()){
             noArguments.setText("No arguments selected for Generation");
             return true;
@@ -198,7 +201,7 @@ public class createNewGameController implements Initializable {
             else if(noArguments.getText().equals("No arguments selected for Generation"))
                 noArguments.setText(noArguments.getText().concat(", Rarity"));
             else
-                noArguments.setText("No arguments selected for Evolution step");
+                noArguments.setText("No arguments selected for Rarity");
             return true;
         }
         return false;
