@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -16,13 +15,7 @@
                 <Image url="@img/ranking.png"/>
             </image>
         </ImageView>
-        <TableView layoutX="20.0" layoutY="89.0" prefHeight="302.0" prefWidth="470.0" AnchorPane.bottomAnchor="10.0"
-                   AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
-            <columns>
-                <TableColumn prefWidth="103.20001029968262" text="Name"/>
-                <TableColumn prefWidth="303.19995880126953" text="Category"/>
-                <TableColumn minWidth="0.0" prefWidth="75.20001220703125" text="Points"/>
-            </columns>
-        </TableView>
+        <TableView fx:id="tableView" layoutX="20.0" layoutY="89.0" prefHeight="302.0" prefWidth="470.0"
+                   AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0"/>
     </children>
 </AnchorPane>

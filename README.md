@@ -37,6 +37,7 @@ you must enter the Virtual machine (VM Options), within the "mainApp" configurat
 
 javafx.controls,javafx.fxml 
 ```
+
 Or follow this [video](https://youtu.be/FylHot91Lz8)
 
 ## Prima settimana
@@ -52,12 +53,16 @@ tutte le informazioni dei vari pokémon che ci serviranno per svolgere il progra
 
 Durante questa settimana abbiamo lavorato divisi un due gruppi: uno si occupava di iniziare a fare la grafica su
 SceneBuilder, mentre l'altro ha iniziato a creare il codice funzionante senza l'aggiunta della grafica che verrà
-implementata successivamente. Nel codice abbiamo effettuato la lettura del [database] (https://docs.google.com/spreadsheets/d/1-Yw_hxKg4_Z6nziu_lHgmgpDhv4dFtOQmIZDYbOK21I/edit?usp=sharing)
+implementata successivamente. Nel codice abbiamo effettuato la lettura
+del [database] (https://docs.google.com/spreadsheets/d/1-Yw_hxKg4_Z6nziu_lHgmgpDhv4dFtOQmIZDYbOK21I/edit?usp=sharing)
 contenente le informazioni relative a ciascun pokémon.
 
 ## Terza settimana
 
-Nella terza settimana, siamo riusciti a completare gran parte del codice, implementando la grafica e aggiungendo alcuni file di tipo Excel per rendere più funzionale e interattivo il programma. Alcuni piccoli errori ci hanno bloccato, ma senza quasi nessun problema siamo riusciti a superarli. Attualmente il codice si trova in uno stato funzionante ma ancora non ultimato, infatti mancano ancora alcuni punti della sezione work in progress.
+Nella terza settimana, siamo riusciti a completare gran parte del codice, implementando la grafica e aggiungendo alcuni
+file di tipo Excel per rendere più funzionale e interattivo il programma. Alcuni piccoli errori ci hanno bloccato, ma
+senza quasi nessun problema siamo riusciti a superarli. Attualmente il codice si trova in uno stato funzionante ma
+ancora non ultimato, infatti mancano ancora alcuni punti della sezione work in progress.
 
 ## Work in Progress
 

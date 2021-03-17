@@ -12,12 +12,15 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import static sample.sampleController.conversion;
+
 public class createNewGameController implements Initializable {
 
     public static ArrayList<Boolean> generationResult = new ArrayList<>();
     public static ArrayList<Boolean> evolutionStepResult = new ArrayList<>();
     public static ArrayList<Boolean> rarityResult = new ArrayList<>();
-    public String activeUser;
+    public String activeUserText;
+    public User activeUser;
     //Generation
     CheckBox gen1CheckBox = new CheckBox("Generation 1");
     CustomMenuItem gen1Item = new CustomMenuItem(gen1CheckBox);
@@ -149,19 +152,21 @@ public class createNewGameController implements Initializable {
         rarityResult.add(semiLegendaryCheckBox.isSelected());
         rarityResult.add(mysteriousCheckBox.isSelected());
         Stage stage = (Stage) cancel.getScene().getWindow();
-        activeUser = nicknameField.getText();
-        rankingController.users.add(new User(activeUser));
+        activeUserText = nicknameField.getText();
         noArguments.setText("");
-        if (activeUser.isEmpty()) {
+        if (activeUserText.isEmpty()) {
             nicknameField.setPromptText("Missing Nickname");
-        }
-        else if (checkGeneration() || checkEvolutionStep() || checkRarity()){
+        } else if (checkGeneration() || checkEvolutionStep() || checkRarity()) {
             noArguments.setText("");
             boolean temp = checkGeneration();
             temp = checkEvolutionStep();
             temp = checkRarity();
-        }
-        else {
+        } else {
+            ListOfPokemon.filteredPokemonArrayList = conversion.filteredPokemons();
+            activeUser = new User(activeUserText);
+            //activeUser.setScore();
+            activeUser.setSettings();
+            rankingController.users.add(activeUser);
             sampleController.work = true;
             stage.close();
         }
@@ -173,18 +178,19 @@ public class createNewGameController implements Initializable {
         stage.close();
     }
 
-    public boolean checkGeneration(){
+    public boolean checkGeneration() {
 
-        if (!gen1CheckBox.isSelected() && !gen2CheckBox.isSelected() && !gen3CheckBox.isSelected() && !gen4CheckBox.isSelected() && !gen5CheckBox.isSelected() && !gen6CheckBox.isSelected()){
+        if (!gen1CheckBox.isSelected() && !gen2CheckBox.isSelected() && !gen3CheckBox.isSelected() &&
+                !gen4CheckBox.isSelected() && !gen5CheckBox.isSelected() && !gen6CheckBox.isSelected()) {
             noArguments.setText("No arguments selected for Generation");
             return true;
         }
         return false;
     }
 
-    public boolean checkEvolutionStep(){
-        if (!baseCheckBox.isSelected() && !phase1CheckBox.isSelected() && !phase2CheckBox.isSelected()){
-            if(noArguments.getText().equals("No arguments selected for Generation"))
+    public boolean checkEvolutionStep() {
+        if (!baseCheckBox.isSelected() && !phase1CheckBox.isSelected() && !phase2CheckBox.isSelected()) {
+            if (noArguments.getText().equals("No arguments selected for Generation"))
                 noArguments.setText(noArguments.getText().concat(", Evolution step"));
             else
                 noArguments.setText("No arguments selected for Evolution step");
@@ -193,12 +199,14 @@ public class createNewGameController implements Initializable {
         return false;
     }
 
-    public boolean checkRarity(){
-        if (!starterCheckBox.isSelected() && !commonCheckBox.isSelected() && !fossilCheckBox.isSelected() && !legendaryCheckBox.isSelected() && !semiLegendaryCheckBox.isSelected() && !mysteriousCheckBox.isSelected()){
-            if(noArguments.getText().equals("No arguments selected for Generation, Evolution step") || noArguments.getText().equals("No arguments selected for Evolution step")){
+    public boolean checkRarity() {
+        if (!starterCheckBox.isSelected() && !commonCheckBox.isSelected() && !fossilCheckBox.isSelected() &&
+                !legendaryCheckBox.isSelected() && !semiLegendaryCheckBox.isSelected() &&
+                !mysteriousCheckBox.isSelected()) {
+            if (noArguments.getText().equals("No arguments selected for Generation, Evolution step") ||
+                    noArguments.getText().equals("No arguments selected for Evolution step")) {
                 noArguments.setText(noArguments.getText().concat(", Rarity"));
-            }
-            else if(noArguments.getText().equals("No arguments selected for Generation"))
+            } else if (noArguments.getText().equals("No arguments selected for Generation"))
                 noArguments.setText(noArguments.getText().concat(", Rarity"));
             else
                 noArguments.setText("No arguments selected for Rarity");

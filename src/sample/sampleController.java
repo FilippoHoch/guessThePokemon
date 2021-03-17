@@ -23,6 +23,9 @@ public class sampleController {
 
 
     public static boolean work = false;
+    public static boolean endGame = false;
+    public static ListOfPokemon conversion = new ListOfPokemon();
+    public static int nTry = 0;
     @FXML
     public Label weight;
     @FXML
@@ -39,13 +42,8 @@ public class sampleController {
     public Label rarity;
     @FXML
     public Label name;
-
-    public ListOfPokemon conversion = new ListOfPokemon();
     public Image[] imagesSprite = new Image[900];
-    public boolean firstTime = true;
     public Pokemon randomPokemon;
-
-
     @FXML
     public ImageView artwork;
     @FXML
@@ -56,8 +54,6 @@ public class sampleController {
     public ImageView footprint;
     @FXML
     public ImageView cover;
-
-    public static int nTry = 0;
     @FXML
     private ImageView logo;
     @SuppressWarnings("FieldMayBeFinal")
@@ -105,8 +101,6 @@ public class sampleController {
         stage.initOwner(currentStage);
         stage.initModality(Modality.WINDOW_MODAL);
         stage.setResizable(false);
-        rankingController.updateUsers();
-
         stage.show();
     }
 
@@ -114,69 +108,64 @@ public class sampleController {
     private void selectElementOfList() {
         String pokemonChoices = listView.getSelectionModel().selectedItemProperty().getValue();
         if (pokemonChoices.equalsIgnoreCase(randomPokemon.getName())) {
-            showParameter(9);
+            endGame = true;
+            showParameter(10);
         } else {
             nTry++;
+            if (nTry >= 9) {
+                endGame = true;
+            }
+
             showParameter(nTry);
         }
 
     }
 
     public void showParameter(int i) {
-        if (i >= 10) {
-        } else if (i > 0) {
-            weight.setText(String.valueOf(randomPokemon.getWeight()));
-            height.setText(String.valueOf(randomPokemon.getHeight()));
-            if (i > 1) {
-                type.setText(randomPokemon.getType1());
-                if (i > 2) {
-                    evolutionStep.setText(String.valueOf(randomPokemon.getEvoPhase()));
-                    if (i > 3) {
-                        type.setText(type.getText().concat(", " + randomPokemon.getType2()));
-                        if (i > 4) {
-                            rarity.setText(randomPokemon.getRarity());
-                            if (i > 5) {
-                                footprint.setImage(new Image(
-                                        new File("src/sample/img/footprints/" + randomPokemon.getId() + ".png").toURI()
-                                                .toString()));
-                                outline.setImage(ListOfPokemon.pokemonShape.get(randomPokemon.getId() - 1));
-                                if (i > 6) {
-                                    ability.setText(randomPokemon.randomAbility);
-                                    if (i > 7) {
-                                        String url;
-                                        if (randomPokemon.getId() + 1 < 10) {
-                                            url = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/00" +
-                                                    (randomPokemon.getId()) + ".png";
-                                        } else if (randomPokemon.getId() + 1 < 100) {
-                                            url = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/0" +
-                                                    (randomPokemon.getId()) + ".png";
-                                        } else {
-                                            url = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/" +
-                                                    (randomPokemon.getId()) + ".png";
-                                        }
-                                        artwork.setImage(new Image(url));
-                                        if (i > 8) {
-                                            cover.setImage(new Image(new File(
-                                                    "src/sample/img/GameCover/cover" + randomPokemon.getGeneration() +
-                                                            "generation.jpg").toURI().toString()));
-                                            animatedSprite.setImage(new Image(
-                                                    "https://play.pokemonshowdown.com/sprites/bwani/" +
-                                                            randomPokemon.getName().toLowerCase() + ".gif"));
-                                            name.setText(randomPokemon.getName());
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
+        switch (i) {
+            case 10:
+                cover.setImage(new Image(
+                        new File("src/sample/img/GameCover/cover" + randomPokemon.getGeneration() + "generation.jpg")
+                                .toURI().toString()));
+                animatedSprite.setImage(new Image(
+                        "https://play.pokemonshowdown.com/sprites/bwani/" + randomPokemon.getName().toLowerCase() +
+                                ".gif"));
+                name.setText(randomPokemon.getName());
+            case 9:
+                String url;
+                if (randomPokemon.getId() + 1 < 10) {
+                    url = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/00" + (randomPokemon.getId()) +
+                            ".png";
+                } else if (randomPokemon.getId() + 1 < 100) {
+                    url = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/0" + (randomPokemon.getId()) +
+                            ".png";
+                } else {
+                    url = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/" + (randomPokemon.getId()) + ".png";
                 }
-            }
+                artwork.setImage(new Image(url));
+            case 8:
+                ability.setText(randomPokemon.randomAbility);
+            case 7:
+                footprint.setImage(new Image(
+                        new File("src/sample/img/footprints/" + randomPokemon.getId() + ".png").toURI().toString()));
+                outline.setImage(ListOfPokemon.pokemonShape.get(randomPokemon.getId() - 1));
+            case 6:
+                rarity.setText(randomPokemon.getRarity());
+            case 5:
+                type.setText(randomPokemon.getType1() + ", " + randomPokemon.getType2());
+            case 4:
+                evolutionStep.setText(String.valueOf(randomPokemon.getEvoPhase()));
+            case 3:
+                type.setText(type.getText().replace("???", randomPokemon.getType1()));
+            case 2:
+                height.setText(String.valueOf(randomPokemon.getHeight()));
+                weight.setText(String.valueOf(randomPokemon.getWeight()));
         }
     }
 
     public void startGame() {
+        endGame = false;
         listView.getItems().clear();
-        ListOfPokemon.filteredPokemonArrayList = conversion.filteredPokemons();
         for (int i = 0; i < ListOfPokemon.filteredPokemonArrayList.size(); i++) {
             listView.getItems().add(ListOfPokemon.filteredPokemonArrayList.get(i).getName());
 
@@ -209,7 +198,7 @@ public class sampleController {
                 }
             });
         }
-        nTry = 0;
+        nTry = 1;
         randomPokemon = conversion.takeRandomPokemon();
         randomPokemon.randomAbility = conversion.randomAbility(randomPokemon);
         generation.setText(Integer.toString(randomPokemon.getGeneration()));
@@ -229,5 +218,4 @@ public class sampleController {
 
 
     }
-
 }

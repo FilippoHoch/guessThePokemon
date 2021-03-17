@@ -88,7 +88,7 @@ public class ListOfPokemon {
             e.printStackTrace();
         }
         for (int i = 0; i < pokemonArrayList.size(); i++) {
-            pokemonArrayList.get(i).setAbilities(pokemonAbilityArrayList, abilityArrayList);
+            pokemonArrayList.get(i).setAbilities();
         }
     }
 

@@ -1,24 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.rankingController">
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity"
+            prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/15.0.1"
+            fx:controller="sample.rankingController">
     <children>
-        <ImageView fx:id="leaderBoard" fitHeight="66.0" fitWidth="279.0" layoutX="111.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="leaderBoard" fitHeight="66.0" fitWidth="279.0" layoutX="111.0" layoutY="14.0"
+                   pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@img/ranking.png" />
+                <Image url="@img/ranking.png"/>
             </image>
         </ImageView>
-        <TableView fx:id="tableView" layoutX="20.0" layoutY="89.0" prefHeight="302.0" prefWidth="470.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
-            <columns>
-                <TableColumn prefWidth="96.80004692077637" text="Name" />
-                <TableColumn prefWidth="310.3999710083008" text="Category" />
-                <TableColumn minWidth="0.0" prefWidth="75.20001220703125" text="Points" />
-            </columns>
-        </TableView>
+        <TableView fx:id="tableView" layoutX="20.0" layoutY="89.0" prefHeight="302.0" prefWidth="470.0"
+                   AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0"/>
     </children>
 </AnchorPane>
