@@ -1,7 +1,5 @@
 package sample;
 
-import java.util.ArrayList;
-
 public class Pokemon {
 
     public String[] abilities = new String[3];

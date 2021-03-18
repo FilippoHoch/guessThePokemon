@@ -54,8 +54,6 @@ public class createNewGameController implements Initializable {
     CustomMenuItem semiLegendaryItem = new CustomMenuItem(semiLegendaryCheckBox);
     CheckBox mysteriousCheckBox = new CheckBox("Mysterious");
     CustomMenuItem mysteriousItem = new CustomMenuItem(mysteriousCheckBox);
-
-
     @FXML
     private Button cancel;
 

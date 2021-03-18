@@ -21,6 +21,10 @@ import java.util.ResourceBundle;
 import java.util.Scanner;
 
 public class rankingController implements Initializable {
+    public static ArrayList<User> users = new ArrayList<>();
+    public static boolean firstTime = true;
+    @FXML
+    public TableView<User> tableView;
     @FXML
     private ImageView leaderBoard;
 

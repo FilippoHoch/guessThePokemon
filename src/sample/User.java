@@ -3,7 +3,7 @@ package sample;
 public class User {
 
     public String username;
-    public int score;
+    public Integer score;
     public String settings = "";
 
 
