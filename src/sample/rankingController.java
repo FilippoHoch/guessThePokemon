@@ -69,8 +69,8 @@ public class rankingController implements Initializable {
         }
 
         FileWriter fileWriter = new FileWriter(path.toString(), false);
-        for (int i = 0; i < users.size(); i++)
-            fileWriter.write(users.get(i).username + " :: " + users.get(i).settings + " :: " + users.get(i).score +
+        for (User user : users)
+            fileWriter.write(user.username + " :: " + user.settings + " :: " + user.score +
                     "\n");
         fileWriter.close();
         users.clear();
