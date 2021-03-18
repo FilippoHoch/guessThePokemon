@@ -87,8 +87,8 @@ public class ListOfPokemon {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        for (int i = 0; i < pokemonArrayList.size(); i++) {
-            pokemonArrayList.get(i).setAbilities();
+        for (Pokemon pokemon : pokemonArrayList) {
+            pokemon.setAbilities();
         }
     }
 
@@ -135,20 +135,6 @@ public class ListOfPokemon {
     public Pokemon takeRandomPokemon() {
         Random random = new Random();
         return filteredPokemons().get(random.nextInt(filteredPokemons().size()));
-    }
-
-    /**
-     * Transforma il nome con il relativo valore numerico
-     *
-     * @param name Il nome da convertire in numero
-     * @return Il numero corrispondente al pokemon in input
-     */
-    public int nameToInt(String name) {
-        for (int i = 0; i < pokemonArrayList.size(); i++) {
-            if (pokemonArrayList.get(i).getName().equals(name))
-                return i;
-        }
-        return -1;
     }
 
 

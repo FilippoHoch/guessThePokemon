@@ -1,9 +1,10 @@
 package sample;
 
+@SuppressWarnings("unused")
 public class User {
 
     public String username;
-    public Integer score;
+    public int score;
     public String settings = "";
 
 

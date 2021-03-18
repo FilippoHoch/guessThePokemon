@@ -64,14 +64,11 @@ public class Pokemon {
     }
 
     public void setAbilities() {
-        abilities[0] = ListOfPokemon.abilityArrayList
-                .get(ListOfPokemon.pokemonAbilityArrayList.get(getId() - 1).abilitySlots.get(0));
-        if (ListOfPokemon.pokemonAbilityArrayList.get(getId() - 1).abilitySlots.size() == 2)
-            abilities[1] = ListOfPokemon.abilityArrayList
-                    .get(ListOfPokemon.pokemonAbilityArrayList.get(getId() - 1).abilitySlots.get(1));
-        if (ListOfPokemon.pokemonAbilityArrayList.get(getId() - 1).abilitySlots.size() == 3) {
-            abilities[2] = ListOfPokemon.abilityArrayList
-                    .get(ListOfPokemon.pokemonAbilityArrayList.get(getId() - 1).abilitySlots.get(2));
+        abilities[0] = ListOfPokemon.abilityArrayList.get(ListOfPokemon.pokemonAbilityArrayList.get(getId()).abilitySlots.get(0));
+        if (ListOfPokemon.pokemonAbilityArrayList.get(getId()).abilitySlots.size() == 2) {
+            abilities[1] = ListOfPokemon.abilityArrayList.get(ListOfPokemon.pokemonAbilityArrayList.get(getId()).abilitySlots.get(1));
+        } else if (ListOfPokemon.pokemonAbilityArrayList.get(getId()).abilitySlots.size() == 3) {
+            abilities[2] = ListOfPokemon.abilityArrayList.get(ListOfPokemon.pokemonAbilityArrayList.get(getId()).abilitySlots.get(2));
         }
     }
 
