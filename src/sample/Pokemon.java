@@ -2,8 +2,6 @@ package sample;
 
 public class Pokemon {
 
-    public String[] abilities = new String[3];
-    public String randomAbility;
     private final int id;
     private final String name;
     private final int evoPhase; //base = 0; fase1 = 1; fase2 = 2
@@ -13,6 +11,8 @@ public class Pokemon {
     private final String rarity; //Starter, Common, Fossil, Leggendary, Semi-Legendary, Mysterious
     private final double height; //in mt
     private final double weight; //in kg
+    public String[] abilities = new String[3];
+    public String randomAbility;
 
     public Pokemon(int id, String name, int evoPhase, String type1, String type2,
                    int generation, String rarity, double height, double weight) {
@@ -64,11 +64,14 @@ public class Pokemon {
     }
 
     public void setAbilities() {
-        abilities[0] = ListOfPokemon.abilityArrayList.get(ListOfPokemon.pokemonAbilityArrayList.get(getId()).abilitySlots.get(0));
+        abilities[0] = ListOfPokemon.abilityArrayList
+                .get(ListOfPokemon.pokemonAbilityArrayList.get(getId()).abilitySlots.get(0));
         if (ListOfPokemon.pokemonAbilityArrayList.get(getId()).abilitySlots.size() == 2) {
-            abilities[1] = ListOfPokemon.abilityArrayList.get(ListOfPokemon.pokemonAbilityArrayList.get(getId()).abilitySlots.get(1));
+            abilities[1] = ListOfPokemon.abilityArrayList
+                    .get(ListOfPokemon.pokemonAbilityArrayList.get(getId()).abilitySlots.get(1));
         } else if (ListOfPokemon.pokemonAbilityArrayList.get(getId()).abilitySlots.size() == 3) {
-            abilities[2] = ListOfPokemon.abilityArrayList.get(ListOfPokemon.pokemonAbilityArrayList.get(getId()).abilitySlots.get(2));
+            abilities[2] = ListOfPokemon.abilityArrayList
+                    .get(ListOfPokemon.pokemonAbilityArrayList.get(getId()).abilitySlots.get(2));
         }
     }
 
