@@ -1,5 +1,6 @@
 package sample;
 
+import com.sun.javafx.application.HostServicesDelegate;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,9 +13,13 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -120,6 +125,16 @@ public class sampleController {
         }
 
     }
+
+    @FXML
+    private void help() {
+        try {
+            Desktop.getDesktop().browse(new URL("https://github.com/FilippoHoch/guessThePokemon").toURI());
+        } catch (IOException | URISyntaxException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public void showParameter(int i) {
         switch (i) {

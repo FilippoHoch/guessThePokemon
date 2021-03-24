@@ -1,83 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
 <?import javafx.scene.Cursor?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="400.0" prefWidth="600.0"
-            xmlns="http://javafx.com/javafx/15.0.1" fx:controller="sample.sampleController">
-    <SplitPane dividerPositions="0.0728643216080402" layoutX="170.0" layoutY="31.0" orientation="VERTICAL"
-               prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
-               AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.sampleController">
+    <SplitPane dividerPositions="0.0728643216080402" layoutX="170.0" layoutY="31.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-            <MenuBar layoutX="46.0" layoutY="1.0" prefHeight="26.4" prefWidth="598.4" AnchorPane.bottomAnchor="0.0"
-                     AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <MenuBar layoutX="46.0" layoutY="1.0" prefHeight="26.4" prefWidth="598.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                 <Menu mnemonicParsing="false" text="Game">
-                    <MenuItem mnemonicParsing="false" onAction="#newGame" text="New.."/>
-                    <MenuItem mnemonicParsing="false" onAction="#leaderBoards" text="Leader Boards"/>
+                    <MenuItem mnemonicParsing="false" onAction="#newGame" text="New.." />
+                    <MenuItem mnemonicParsing="false" onAction="#leaderBoards" text="Leader Boards" />
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">
-                    <MenuItem mnemonicParsing="false" text="About"/>
+                    <MenuItem mnemonicParsing="false" onAction="#help" text="About" />
                 </Menu>
             </MenuBar>
         </AnchorPane>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-            <SplitPane dividerPositions="0.5" layoutX="190.0" layoutY="66.0" prefHeight="366.4" prefWidth="598.4"
-                       AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-                       AnchorPane.topAnchor="0.0">
+            <SplitPane dividerPositions="0.5" layoutX="190.0" layoutY="66.0" prefHeight="366.4" prefWidth="598.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                 <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                    <ListView fx:id="listView" layoutX="-24.0" layoutY="22.0" onMouseClicked="#selectElementOfList"
-                              prefHeight="364.8" prefWidth="176.0" AnchorPane.bottomAnchor="0.0"
-                              AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <ListView fx:id="listView" layoutX="-24.0" layoutY="22.0" onMouseClicked="#selectElementOfList" prefHeight="364.8" prefWidth="176.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                         <cursor>
-                            <Cursor fx:constant="HAND"/>
+                            <Cursor fx:constant="HAND" />
                         </cursor>
                     </ListView>
                 </AnchorPane>
                 <AnchorPane prefHeight="160.0" prefWidth="100.0">
                     <children>
-                        <Label layoutX="14.0" layoutY="50.0" text="Generation:"/>
-                        <Label layoutX="14.0" layoutY="71.0" text="Weight:"/>
-                        <Label layoutX="154.0" layoutY="70.0" text="Height:"/>
-                        <Label layoutX="14.0" layoutY="90.0" text="Type:"/>
-                        <Label layoutX="14.0" layoutY="110.0" text="Evolution step:"/>
-                        <Label layoutX="14.0" layoutY="130.0" text="Ability:"/>
-                        <Label fx:id="name" layoutX="108.0" layoutY="180.0" text="???"/>
-                        <Label fx:id="weight" layoutX="60.0" layoutY="71.0" text="???"/>
-                        <Label fx:id="type" layoutX="52.0" layoutY="90.0" text="???"/>
-                        <Label fx:id="evolutionStep" layoutX="100.0" layoutY="110.0" text="???"/>
-                        <Label fx:id="ability" layoutX="60.0" layoutY="130.0" text="???"/>
-                        <Label fx:id="height" layoutX="201.0" layoutY="71.0" text="???"/>
-                        <Label layoutX="255.0" layoutY="14.0" text="Outline:"/>
-                        <Label layoutX="322.0" layoutY="14.0" text="Footprint:"/>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="160.0" layoutX="217.0"
-                                   layoutY="189.0" stroke="BLACK" strokeType="INSIDE" width="165.0"/>
-                        <ImageView fx:id="artwork" fitHeight="155.0" fitWidth="155.0" layoutX="224.0" layoutY="193.0"
-                                   pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="220.5"
-                                   AnchorPane.topAnchor="191.0"/>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="62.0" layoutX="310.0"
-                                   layoutY="119.0" stroke="BLACK" strokeType="INSIDE" width="62.0"/>
-                        <ImageView fx:id="animatedSprite" fitHeight="55.0" fitWidth="55.0" layoutX="315.0"
-                                   layoutY="124.0" pickOnBounds="true" preserveRatio="true"
-                                   AnchorPane.leftAnchor="313.5" AnchorPane.rightAnchor="17.0"
-                                   AnchorPane.topAnchor="122.5"/>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="62.0" layoutX="255.0"
-                                   layoutY="28.0" stroke="BLACK" strokeType="INSIDE" width="62.0"/>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="62.0" layoutX="320.0"
-                                   layoutY="28.0" stroke="BLACK" strokeType="INSIDE" width="62.0"/>
-                        <ImageView fx:id="footprint" fitHeight="55.0" fitWidth="55.0" layoutX="323.5" layoutY="32.0"
-                                   pickOnBounds="true" preserveRatio="true"/>
-                        <ImageView fx:id="outline" fitHeight="55.0" fitWidth="55.0" layoutX="258.5" layoutY="32.0"
-                                   pickOnBounds="true" preserveRatio="true"/>
-                        <ImageView fx:id="logo" fitHeight="150.0" fitWidth="190.0" layoutX="13.0" layoutY="14.0"
-                                   pickOnBounds="true" preserveRatio="true"/>
-                        <Label layoutX="13.0" layoutY="180.0" text="The pokemon is:"/>
-                        <ImageView fx:id="cover" fitHeight="150.0" fitWidth="150.0" layoutX="17.0" layoutY="198.0"
-                                   pickOnBounds="true" preserveRatio="true"/>
-                        <Label fx:id="generation" layoutX="78.0" layoutY="50.0" text="???"/>
-                        <Label layoutX="140.0" layoutY="110.0" text="Rarity:"/>
-                        <Label fx:id="rarity" layoutX="184.0" layoutY="110.0" text="???"/>
+                        <Label layoutX="14.0" layoutY="50.0" text="Generation:" />
+                        <Label layoutX="14.0" layoutY="71.0" text="Weight:" />
+                        <Label layoutX="154.0" layoutY="70.0" text="Height:" />
+                        <Label layoutX="14.0" layoutY="90.0" text="Type:" />
+                        <Label layoutX="14.0" layoutY="110.0" text="Evolution step:" />
+                        <Label layoutX="14.0" layoutY="130.0" text="Ability:" />
+                        <Label fx:id="name" layoutX="108.0" layoutY="180.0" text="???" />
+                        <Label fx:id="weight" layoutX="60.0" layoutY="71.0" text="???" />
+                        <Label fx:id="type" layoutX="52.0" layoutY="90.0" text="???" />
+                        <Label fx:id="evolutionStep" layoutX="100.0" layoutY="110.0" text="???" />
+                        <Label fx:id="ability" layoutX="60.0" layoutY="130.0" text="???" />
+                        <Label fx:id="height" layoutX="201.0" layoutY="71.0" text="???" />
+                        <Label layoutX="255.0" layoutY="14.0" text="Outline:" />
+                        <Label layoutX="322.0" layoutY="14.0" text="Footprint:" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="160.0" layoutX="217.0" layoutY="189.0" stroke="BLACK" strokeType="INSIDE" width="165.0" />
+                        <ImageView fx:id="artwork" fitHeight="155.0" fitWidth="155.0" layoutX="224.0" layoutY="193.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="220.5" AnchorPane.topAnchor="191.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="62.0" layoutX="310.0" layoutY="119.0" stroke="BLACK" strokeType="INSIDE" width="62.0" />
+                        <ImageView fx:id="animatedSprite" fitHeight="55.0" fitWidth="55.0" layoutX="315.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="313.5" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="122.5" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="62.0" layoutX="255.0" layoutY="28.0" stroke="BLACK" strokeType="INSIDE" width="62.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="62.0" layoutX="320.0" layoutY="28.0" stroke="BLACK" strokeType="INSIDE" width="62.0" />
+                        <ImageView fx:id="footprint" fitHeight="55.0" fitWidth="55.0" layoutX="323.5" layoutY="32.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="outline" fitHeight="55.0" fitWidth="55.0" layoutX="258.5" layoutY="32.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="logo" fitHeight="150.0" fitWidth="190.0" layoutX="13.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label layoutX="13.0" layoutY="180.0" text="The pokemon is:" />
+                        <ImageView fx:id="cover" fitHeight="150.0" fitWidth="150.0" layoutX="17.0" layoutY="198.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="generation" layoutX="78.0" layoutY="50.0" text="???" />
+                        <Label layoutX="140.0" layoutY="110.0" text="Rarity:" />
+                        <Label fx:id="rarity" layoutX="184.0" layoutY="110.0" text="???" />
                     </children>
                 </AnchorPane>
             </SplitPane>
