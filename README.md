@@ -66,9 +66,7 @@ ancora non ultimato, infatti mancano ancora alcuni punti della sezione work in p
 
 ## Quarta settimana
 
-Nella quarta settimana, siamo riusciti a completare maggior parte del codice, migliorando e finendo la parte grafica, creando la parte dei leaderboards, salvando chiunque giochi tramite un sistema di punteggio. La parte principale è stata ultimata, ma ci sono ancora piccoli bug che ogni tanto si scoprono provando sempre più il programma. Nonostante alcuni problemi, siamo quasi al termine di tutto.  
-
-## Work in Progress
+Nella quarta settimana, siamo riusciti a completare maggior parte del codice, migliorando e finendo la parte grafica, creando la parte dei leaderboards, salvando chiunque giochi tramite un sistema di punteggio. La parte principale è stata ultimata, ma ci sono ancora piccoli bug che ogni tanto si scoprono provando sempre più il programma. Nonostante alcuni problemi, siamo quasi al termine di tutto.
 
 ### Codice:
 
