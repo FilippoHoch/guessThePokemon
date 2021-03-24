@@ -26,9 +26,8 @@ import java.nio.file.Paths;
 
 public class sampleController {
 
-
     public static boolean work = false;
-    public static boolean endGame = false;
+    public static boolean endGame = true;
     public static ListOfPokemon conversion = new ListOfPokemon();
     public static int nTry = 0;
     @FXML
@@ -139,6 +138,7 @@ public class sampleController {
     public void showParameter(int i) {
         switch (i) {
             case 10:
+                endGame = true;
                 cover.setImage(new Image(
                         new File("src/sample/img/GameCover/cover" + randomPokemon.getGeneration() + "generation.jpg")
                                 .toURI().toString()));
@@ -146,6 +146,8 @@ public class sampleController {
                         "https://play.pokemonshowdown.com/sprites/bwani/" + randomPokemon.getName().toLowerCase() +
                                 ".gif"));
                 name.setText(randomPokemon.getName());
+                if (!rankingController.users.isEmpty())
+                    rankingController.users.get(rankingController.users.size() - 1).setScore();
             case 9:
                 String url;
                 if (randomPokemon.getId() + 1 < 10) {

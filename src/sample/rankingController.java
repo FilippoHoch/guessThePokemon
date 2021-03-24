@@ -32,8 +32,6 @@ public class rankingController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         if (!sampleController.endGame && !users.isEmpty())
             users.get(users.size() - 1).setScore(0);
-        else if (!users.isEmpty())
-            users.get(users.size() - 1).setScore();
         try {
             updateUsers();
         } catch (IOException exception) {

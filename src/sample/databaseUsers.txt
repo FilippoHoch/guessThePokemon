@@ -1,0 +1,9 @@
+CheatingEstremo :: 1°, 2°, 3°, 4°, 5°, 6°,  generazione; Base, Phase1, Phase2, ; Starter, Common, Fossil, Legendary, Pseudo-Legendary, Mysterious,  :: 100
+Parappapero :: 1°, 2°, 3°, 4°, 5°, 6°,  generazione; Base, Phase1, Phase2, ; Starter, Common, Fossil, Legendary, Pseudo-Legendary, Mysterious,  :: 44
+FinalmenteFunziona :: 1°, 2°, 3°, 4°, 5°, 6°,  generazione; Base, Phase1, Phase2, ; Starter, Common, Fossil, Legendary, Pseudo-Legendary, Mysterious,  :: 77
+OnlyOnePokemon :: 1°,  generazione; Phase2, ; Pseudo-Legendary,  :: 0
+ProveAGoGo :: 2°, 4°, 6°,  generazione; Base, Phase1, Phase2, ; Starter, Common, Fossil, Legendary, Pseudo-Legendary, Mysterious,  :: 21
+BellaZi :: 1°, 2°, 3°, 4°, 5°, 6°,  generazione; Base, Phase1, Phase2, ; Starter, Common, Fossil, Legendary, Pseudo-Legendary, Mysterious,  :: 88
+Pirla :: 1°, 2°, 3°, 4°, 5°, 6°,  generazione; Base, Phase1, Phase2, ; Starter, Common, Fossil, Legendary, Pseudo-Legendary, Mysterious,  :: 77
+Pirla2 :: 1°, 2°, 3°, 4°, 5°, 6°,  generazione; Base, Phase1, Phase2, ; Starter, Common, Fossil, Legendary, Pseudo-Legendary, Mysterious,  :: 66
+Pirla3 :: 1°, 2°, 3°, 4°, 5°, 6°,  generazione; Base, Phase1, Phase2, ; Starter, Common, Fossil, Legendary, Pseudo-Legendary, Mysterious,  :: 55
