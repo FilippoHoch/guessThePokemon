@@ -1,5 +1,7 @@
 # Guess the Pokémon – Sub project
 
+Bisogna sistemare il bug della LeaderBoard che modifica il punteggio a sotto 0 quando non azzecchi il pokemon
+
 ## Il progetto
 
 Il progetto si compone principalmente da due sotto progetti, il
