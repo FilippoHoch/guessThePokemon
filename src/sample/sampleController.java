@@ -21,7 +21,7 @@ import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-
+// Questa classe permette l'inizializzazione dello stage e l'intero svolgimento programma 
 public class sampleController {
 
     public static boolean work = false;
@@ -62,6 +62,7 @@ public class sampleController {
     @FXML
     private ListView<String> listView = new ListView<>();
 
+    // Questo metodo raffigura ciò che si vede appena il programma viene fatto partire
     @FXML
     public void initialize() {
         Image unknownImage = new Image(new File("src/sample/img/unknown.png").toURI().toString());
@@ -73,6 +74,7 @@ public class sampleController {
         conversion.excelReading();
     }
 
+    // Il metodo seguente inizia la parte del codice del programma
     @FXML
     private void newGame() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/sample/createNewGame.fxml"));
@@ -92,6 +94,7 @@ public class sampleController {
         });
     }
 
+    // La parte del punteggio del programma viene richiamato tramite il seguente metodo
     @FXML
     private void leaderBoards() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/sample/ranking.fxml"));
@@ -106,6 +109,7 @@ public class sampleController {
         stage.show();
     }
 
+    // Questo metodo nel caso chi stia giocando prova troppe volte, il gioco finisce
     @FXML
     private void selectElementOfList() {
         String pokemonChoices = listView.getSelectionModel().selectedItemProperty().getValue();
@@ -123,6 +127,7 @@ public class sampleController {
 
     }
 
+    // Il metodo indica la sezione help del codice, cliccandoci sopra, si apre un link al programma su Github
     @FXML
     private void help() {
         try {
@@ -133,6 +138,11 @@ public class sampleController {
     }
 
 
+    /**
+    * Quando si indovina, questo metodo mostra tutte quante le varie informazioni dul Pokémon indovinato
+    *
+    * @arguments i
+    */
     public void showParameter(int i) {
         switch (i) {
             case 10:
@@ -178,6 +188,7 @@ public class sampleController {
         }
     }
 
+    // La schermata che si visualizza la prima volta che si apre il gioco, è definita nel seguente metodo
     public void startGame() {
         endGame = false;
         listView.getItems().clear();

@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
+// La seguente classe permette di poter scrivere il sistema di punteggio 
 public class rankingController implements Initializable {
     public static ArrayList<User> users = new ArrayList<>();
     public static boolean firstTime = true;
@@ -28,6 +29,12 @@ public class rankingController implements Initializable {
     @FXML
     private ImageView leaderBoard;
 
+    /**
+    * Nella leaderboards, vengono scritti tutti i vari filtri attivi tramite il seguente metodo, creando delle colonne adeguate
+    *
+    * @arguments URL location
+    * @arguments ResourceBundle resources
+    */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         if (!sampleController.endGame && !users.isEmpty())
@@ -54,6 +61,7 @@ public class rankingController implements Initializable {
         tableView.getColumns().addAll(nameColumn, categoryColumn, pointsColumn);
     }
 
+    // Il seguente metodo, serve per poter aprire ed aggiungere nelle leaderboards un nuovo punteggio 
     public void updateUsers() throws IOException {
         Path path = Paths.get("src/sample/databaseUsers.txt");
         Scanner fileReader;

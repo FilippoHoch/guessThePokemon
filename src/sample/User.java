@@ -1,5 +1,6 @@
 package sample;
 
+// Questa classe ci permette di calcolare il punteggio
 @SuppressWarnings("unused")
 public class User {
 
@@ -34,13 +35,15 @@ public class User {
         return settings;
     }
 
+    // Il seguente metodo permette di assegnare il punteggio del giocatore che varia in base al numero di filtri e al numero di tentativi nell'indovinare 
     public void setScore() {
-        double nPokemonMod = (double) ListOfPokemon.filteredPokemonArrayList.size() / 721;
+        double nPkMod = (double)(ListOfPokemon.filteredPokemonArrayList.size() / 721 > 0.33 ? (ListOfPokemon.filteredPokemonArrayList.size() / 721) : 0.33 )
         double tryMod = (10 - (double) sampleController.nTry) / 9;
         double tempScore = nPokemonMod * tryMod * 100;
         score = (int) tempScore;
     }
 
+    // Questo metodo permette di poter creare una stringa di informazioni che cambiano in base ai vari filtri selezionati
     public void setSettings() {
         String[] evolutionSteps = {"Base", "Phase1", "Phase2"};
         String[] rarity = {"Starter", "Common", "Fossil", "Legendary", "Pseudo-Legendary", "Mysterious"};

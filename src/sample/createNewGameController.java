@@ -14,6 +14,7 @@ import java.util.ResourceBundle;
 
 import static sample.sampleController.conversion;
 
+// Questa classe ci permette di creare i vari filtri e come si visualizzano
 public class createNewGameController implements Initializable {
 
     public static ArrayList<Boolean> generationResult = new ArrayList<>();
@@ -21,7 +22,7 @@ public class createNewGameController implements Initializable {
     public static ArrayList<Boolean> rarityResult = new ArrayList<>();
     public String activeUserText;
     public User activeUser;
-    //Generation
+    // Questo è il paragrafo delle varie generazioni
     CheckBox gen1CheckBox = new CheckBox("Generation 1");
     CustomMenuItem gen1Item = new CustomMenuItem(gen1CheckBox);
     CheckBox gen2CheckBox = new CheckBox("Generation 2");
@@ -34,14 +35,14 @@ public class createNewGameController implements Initializable {
     CustomMenuItem gen5Item = new CustomMenuItem(gen5CheckBox);
     CheckBox gen6CheckBox = new CheckBox("Generation 6");
     CustomMenuItem gen6Item = new CustomMenuItem(gen6CheckBox);
-    //Evolution step
+    // Questo è il paragrafo delle varie fasi d'evoluzione 
     CheckBox baseCheckBox = new CheckBox("Base");
     CustomMenuItem baseItem = new CustomMenuItem(baseCheckBox);
     CheckBox phase1CheckBox = new CheckBox("First evolution");
     CustomMenuItem phase1Item = new CustomMenuItem(phase1CheckBox);
     CheckBox phase2CheckBox = new CheckBox("Second evolution");
     CustomMenuItem phase2Item = new CustomMenuItem(phase2CheckBox);
-    //Rarity
+    // Questo è il paragrafo delle rarità dei Pokémon
     CheckBox starterCheckBox = new CheckBox("Starter");
     CustomMenuItem starterItem = new CustomMenuItem(starterCheckBox);
     CheckBox commonCheckBox = new CheckBox("Common");
@@ -75,6 +76,13 @@ public class createNewGameController implements Initializable {
     @FXML
     private Label noArguments;
 
+    
+    /**
+    * Quando si gioca, possiamo utilizzare dei filtri per i vari Pokémon. I filtri, tramite questo metodo possono essere selezionati e deselezionati
+    *
+    * @arguments URL location
+    * @arguments ResourceBundle resources
+    */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         File logoFile = new File("src/sample/img/createNewGame.png");
@@ -129,6 +137,7 @@ public class createNewGameController implements Initializable {
         rarity.getItems().setAll(starterItem, commonItem, fossilItem, legendaryItem, semiLegendaryItem, mysteriousItem);
     }
 
+    // Il seguente metodo è un controllo: nel caso non sia stato inserito il nome, apparirà a schermo un segnale d'errore
     @FXML
     private void confirm() {
         generationResult.clear();
@@ -170,6 +179,11 @@ public class createNewGameController implements Initializable {
         }
     }
 
+    /**
+    * Quando si gioca, possiamo utilizzare dei filtri per i vari Pokémon, nel caso vengano tolti tutti i filtri, comparirà un messaggio di errore. I tre metodi qua elencati, definiscono tutti i vari casi
+    *
+    * @return presenza o assenza dei vari filtri selezionati
+    */
     @FXML
     public void cancel() {
         Stage stage = (Stage) cancel.getScene().getWindow();
