@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
 
+// La seguente classe contiene i Pokemon che possiamo indovinare tramite i vari filtri da noi apportati
 public class ListOfPokemon {
     public static ArrayList<Pokemon> pokemonArrayList = new ArrayList<>();
     public static ArrayList<String> abilityArrayList = new ArrayList<>();
@@ -18,13 +19,18 @@ public class ListOfPokemon {
     ListOfPokemon() {
     }
 
+    /**
+    * Questo metodo estrae i dati dei Pokémon dal file Excel e applica 
+    */
     public void excelReading() {
         try {
             File f = new File("src/sample/Excel/withoutDescription/pokemonDataBaseWD.xlsx");
             Workbook wb = WorkbookFactory.create(f);
             Sheet mySheet = wb.getSheetAt(0);
+            // Iteratore che aggiunge alla lista i Pokémon inserendoli nella classe omonima
             for (Iterator<Row> rowIterator = mySheet.rowIterator(); rowIterator.hasNext(); ) {
                 Iterator<Cell> cellIterator = rowIterator.next().cellIterator();
+                // Gabriele propone ottimizzazione (rimozione di variazione della variabile)
                 int pokemonNumber = (int) Math.round(Double.parseDouble(cellIterator.next().toString()));
                 String pokemonName = cellIterator.next().toString();
                 int pokemonPhase = (int) Math.round(Double.parseDouble(cellIterator.next().toString()));
@@ -45,6 +51,7 @@ public class ListOfPokemon {
             File f = new File("src/sample/Excel/withoutDescription/abilityDataBaseWD.xlsx");
             Workbook wb = WorkbookFactory.create(f);
             Sheet mySheet = wb.getSheetAt(0);
+            // Iteratore che estrae tutte le abilità 
             for (Iterator<Row> rowIterator = mySheet.rowIterator(); rowIterator.hasNext(); ) {
                 Iterator<Cell> cellIterator = rowIterator.next().cellIterator();
                 String abilityName = cellIterator.next().toString();
@@ -58,6 +65,7 @@ public class ListOfPokemon {
             Workbook wb = WorkbookFactory.create(f);
             Sheet mySheet = wb.getSheetAt(0);
             boolean firstTime = true;
+            // Iteratore che assegna le abilità ai Pokémon a cui appartengono 
             for (Iterator<Row> rowIterator = mySheet.rowIterator(); rowIterator.hasNext(); ) {
                 Iterator<Cell> cellIterator = rowIterator.next().cellIterator();
                 int pokemonId = (int) Math.round(Double.parseDouble(cellIterator.next().toString()));
@@ -79,6 +87,7 @@ public class ListOfPokemon {
             File f = new File("src/sample/Excel/withoutDescription/Shape.xlsx");
             Workbook wb = WorkbookFactory.create(f);
             Sheet mySheet = wb.getSheetAt(0);
+            // Iteratore che assegna ai vari Pokémon le loro forme 
             for (Iterator<Row> rowIterator = mySheet.rowIterator(); rowIterator.hasNext(); ) {
                 Iterator<Cell> cellIterator = rowIterator.next().cellIterator();
                 String url = cellIterator.next().toString();
@@ -92,6 +101,11 @@ public class ListOfPokemon {
         }
     }
 
+    /**
+    * Questo metodo permette, nel caso il Pokémon abbia più di un'abilità, di poterla assegnare completamente.
+    *
+    * @arguments Pokémon
+    */
     public String randomAbility(Pokemon pokemon) {
         Random random = new Random();
         String ability;
@@ -101,6 +115,11 @@ public class ListOfPokemon {
         return ability;
     }
 
+    /**
+    * Quando si gioca, possiamo utilizzare dei filtri per poter selezionare i Pokémon desiderati. Grazie a questo metodo, possiamo selezionarli.
+    *
+    * @return lista dei Pokémon che sono stati filtrati
+    */
     public ArrayList<Pokemon> filteredPokemons() {
         ArrayList<Pokemon> pokemons = (ArrayList<Pokemon>) pokemonArrayList.clone();
         String[] rar = {"Starter", "Common", "Fossil", "Legendary", "Pseudo-Legendary", "Mysterious"};
@@ -132,6 +151,11 @@ public class ListOfPokemon {
         return pokemons;
     }
 
+    /**
+    * Il metodo seleziona randomicamente uno dei vari Pokémon che sono stati filtrati.
+    *
+    * @return lista dei Pokémon che sono stati filtrati
+    */
     public Pokemon takeRandomPokemon() {
         Random random = new Random();
         return filteredPokemons().get(random.nextInt(filteredPokemons().size()));
