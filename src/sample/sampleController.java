@@ -152,7 +152,7 @@ public class sampleController {
     /**
      * Quando si indovina, questo metodo mostra tutte quante le varie informazioni dul Pokémon indovinato
      *
-     * @arguments i
+     * @arguments i (numero di tentativi)
      */
     public void showParameter(int i) {
         switch (i) {
