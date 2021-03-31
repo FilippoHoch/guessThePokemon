@@ -104,7 +104,8 @@ public class ListOfPokemon {
     /**
      * Questo metodo permette, nel caso il Pokémon abbia più di un'abilità, di poterla assegnare completamente.
      *
-     * @arguments Pokémon
+     * @arguments Pokémon (dati del Pokémon)
+     * @return ability (abilità del Pokémon in base ai dati)
      */
     public String randomAbility(Pokemon pokemon) {
         Random random = new Random();
