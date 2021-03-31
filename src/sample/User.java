@@ -35,7 +35,9 @@ public class User {
         return settings;
     }
 
-    // Il seguente metodo permette di assegnare il punteggio del giocatore che varia in base al numero di filtri e al numero di tentativi nell'indovinare 
+    /*
+    * Il seguente metodo permette di assegnare il punteggio del giocatore che varia in base al numero di filtri e al numero di tentativi nell'indovinare 
+    */
     public void setScore() {
         double nPkMod = (double) (ListOfPokemon.filteredPokemonArrayList.size() / 721 > 0.33 ?
                 (ListOfPokemon.filteredPokemonArrayList.size() / 721) : 0.33)
@@ -44,7 +46,9 @@ public class User {
         score = (int) tempScore;
     }
 
-    // Questo metodo permette di poter creare una stringa di informazioni che cambiano in base ai vari filtri selezionati
+    /* 
+    * Questo metodo permette di poter creare una stringa di informazioni che cambiano in base ai vari filtri selezionati
+    */
     public void setSettings() {
         String[] evolutionSteps = {"Base", "Phase1", "Phase2"};
         String[] rarity = {"Starter", "Common", "Fossil", "Legendary", "Pseudo-Legendary", "Mysterious"};
