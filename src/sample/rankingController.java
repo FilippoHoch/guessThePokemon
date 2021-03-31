@@ -61,7 +61,9 @@ public class rankingController implements Initializable {
         tableView.getColumns().addAll(nameColumn, categoryColumn, pointsColumn);
     }
 
-    // Il seguente metodo, serve per poter aprire ed aggiungere nelle leaderboards un nuovo punteggio 
+    /* Il seguente metodo, serve per poter aprire ed aggiungere nelle leaderboards un nuovo punteggio 
+    *
+    */
     public void updateUsers() throws IOException {
         Path path = Paths.get("src/sample/databaseUsers.txt");
         Scanner fileReader;
