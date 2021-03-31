@@ -137,7 +137,9 @@ public class createNewGameController implements Initializable {
         rarity.getItems().setAll(starterItem, commonItem, fossilItem, legendaryItem, semiLegendaryItem, mysteriousItem);
     }
 
-    // Il seguente metodo è un controllo: nel caso non sia stato inserito il nome, apparirà a schermo un segnale d'errore
+    /* 
+    * Il seguente metodo è un controllo: nel caso non sia stato inserito il nome, apparirà a schermo un segnale d'errore
+    */
     @FXML
     private void confirm() {
         generationResult.clear();

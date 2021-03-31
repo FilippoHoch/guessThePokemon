@@ -62,7 +62,9 @@ public class sampleController {
     @FXML
     private ListView<String> listView = new ListView<>();
 
-    // Questo metodo raffigura ciò che si vede appena il programma viene fatto partire
+    /* 
+    * Questo metodo raffigura ciò che si vede appena il programma viene fatto partire
+    */
     @FXML
     public void initialize() throws Exception{
         Image unknownImage = new Image(new File("src/sample/img/unknown.png").toURI().toString());
@@ -84,7 +86,9 @@ public class sampleController {
         });
     }
 
-    // Il metodo seguente inizia la parte del codice del programma
+    /* 
+    * Il metodo seguente inizia la parte del codice del programma
+    */
     @FXML
     private void newGame() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/sample/createNewGame.fxml"));
@@ -104,13 +108,17 @@ public class sampleController {
         });
     }
 
-    // La parte del punteggio del programma viene richiamato tramite il seguente metodo
+    /* 
+    * La parte del punteggio del programma viene richiamato tramite il seguente metodo
+    */
     @FXML
     private void leaderBoards() throws IOException {
 
     }
 
-    // Questo metodo nel caso chi stia giocando prova troppe volte, il gioco finisce
+    /* 
+    * Questo metodo nel caso chi stia giocando prova troppe volte, il gioco finisce
+    */
     @FXML
     private void selectElementOfList() {
         String pokemonChoices = listView.getSelectionModel().selectedItemProperty().getValue();
@@ -191,7 +199,9 @@ public class sampleController {
         }
     }
 
-    // La schermata che si visualizza la prima volta che si apre il gioco, è definita nel seguente metodo
+    /* 
+    * La schermata che si visualizza la prima volta che si apre il gioco, è definita nel seguente metodo
+    */
     public void startGame() {
         endGame = false;
         listView.getItems().clear();
