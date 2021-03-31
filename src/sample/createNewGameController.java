@@ -76,13 +76,13 @@ public class createNewGameController implements Initializable {
     @FXML
     private Label noArguments;
 
-    
+
     /**
-    * Quando si gioca, possiamo utilizzare dei filtri per i vari Pokémon. I filtri, tramite questo metodo possono essere selezionati e deselezionati
-    *
-    * @arguments URL location
-    * @arguments ResourceBundle resources
-    */
+     * Quando si gioca, possiamo utilizzare dei filtri per i vari Pokémon. I filtri, tramite questo metodo possono essere selezionati e deselezionati
+     *
+     * @arguments URL location
+     * @arguments ResourceBundle resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         File logoFile = new File("src/sample/img/createNewGame.png");
@@ -180,10 +180,10 @@ public class createNewGameController implements Initializable {
     }
 
     /**
-    * Quando si gioca, possiamo utilizzare dei filtri per i vari Pokémon, nel caso vengano tolti tutti i filtri, comparirà un messaggio di errore. I tre metodi qua elencati, definiscono tutti i vari casi
-    *
-    * @return presenza o assenza dei vari filtri selezionati
-    */
+     * Quando si gioca, possiamo utilizzare dei filtri per i vari Pokémon, nel caso vengano tolti tutti i filtri, comparirà un messaggio di errore. I tre metodi qua elencati, definiscono tutti i vari casi
+     *
+     * @return presenza o assenza dei vari filtri selezionati
+     */
     @FXML
     public void cancel() {
         Stage stage = (Stage) cancel.getScene().getWindow();

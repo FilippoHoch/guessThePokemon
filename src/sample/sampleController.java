@@ -113,10 +113,10 @@ public class sampleController {
     @FXML
     private void selectElementOfList() {
         String pokemonChoices = listView.getSelectionModel().selectedItemProperty().getValue();
-        if (pokemonChoices.equalsIgnoreCase(randomPokemon.getName())) {
+        if (pokemonChoices.equalsIgnoreCase(randomPokemon.getName()) && !endGame) {
             endGame = true;
             showParameter(10);
-        } else {
+        } else if (!endGame) {
             nTry++;
             if (nTry >= 9) {
                 endGame = true;
@@ -127,7 +127,9 @@ public class sampleController {
 
     }
 
-    // Il metodo indica la sezione help del codice, cliccandoci sopra, si apre un link al programma su Github
+    /**
+     * Il metodo indica la sezione help del codice, cliccandoci sopra, si apre un link al programma su Github
+     */
     @FXML
     private void help() {
         try {
@@ -139,10 +141,10 @@ public class sampleController {
 
 
     /**
-    * Quando si indovina, questo metodo mostra tutte quante le varie informazioni dul Pokémon indovinato
-    *
-    * @arguments i
-    */
+     * Quando si indovina, questo metodo mostra tutte quante le varie informazioni dul Pokémon indovinato
+     *
+     * @arguments i
+     */
     public void showParameter(int i) {
         switch (i) {
             case 10:

@@ -1,6 +1,5 @@
 # Guess the Pokémon – Sub project
 
-Bisogna sistemare il bug della LeaderBoard che modifica il punteggio a sotto 0 quando non azzecchi il pokemon
 
 ## Il progetto
 
@@ -68,7 +67,10 @@ ancora non ultimato, infatti mancano ancora alcuni punti della sezione work in p
 
 ## Quarta settimana
 
-Nella quarta settimana, siamo riusciti a completare maggior parte del codice, migliorando e finendo la parte grafica, creando la parte dei leaderboards, salvando chiunque giochi tramite un sistema di punteggio. La parte principale è stata ultimata, ma ci sono ancora piccoli bug che ogni tanto si scoprono provando sempre più il programma. Nonostante alcuni problemi, siamo quasi al termine di tutto.
+Nella quarta settimana, siamo riusciti a completare maggior parte del codice, migliorando e finendo la parte grafica,
+creando la parte dei leaderboards, salvando chiunque giochi tramite un sistema di punteggio. La parte principale è stata
+ultimata, ma ci sono ancora piccoli bug che ogni tanto si scoprono provando sempre più il programma. Nonostante alcuni
+problemi, siamo quasi al termine di tutto.
 
 ### Codice:
 
@@ -86,35 +88,48 @@ Nella quarta settimana, siamo riusciti a completare maggior parte del codice, mi
 - [Gabriele Borghesi](https://github.com/Gabry-EXE)
 - [Daniele Romano](https://github.com/ROMA030)
 
-
 # Guess the Pokémon – Manuale
 
 ## L'obiettivo del gioco
 
-L'obiettivo del gioco è semplice: indovinare un pokémon basandosi sulle informazioni che il programma fornisce all'utente.
+L'obiettivo del gioco è semplice: indovinare un pokémon basandosi sulle informazioni che il programma fornisce
+all'utente.
 
 ## Preparazione della partita
 
-All’avvio del programma sarà necessario selezionare l’opzione per creare una nuova partita. Durante questa fase il programma permette all’utente di filtrare i pokémon secondo tre criteri: la generazione, lo stadio evolutivo e la rarità.
-Dopo aver impostato i filtri come si desidera, per poter escludere certi tipi di pokémon o sceglierne solo alcuni sarà richiesto di inserire un nome, o un nickname per chi preferisce, prima di poter finalmente avviare il gioco.
+All’avvio del programma sarà necessario selezionare l’opzione per creare una nuova partita. Durante questa fase il
+programma permette all’utente di filtrare i pokémon secondo tre criteri: la generazione, lo stadio evolutivo e la
+rarità. Dopo aver impostato i filtri come si desidera, per poter escludere certi tipi di pokémon o sceglierne solo
+alcuni sarà richiesto di inserire un nome, o un nickname per chi preferisce, prima di poter finalmente avviare il gioco.
 
 ## Lo svolgimento della partita
 
-A sfida iniziata il programma darà il primo indizio riguardo al pokémon che l’utente deve indovinare. Informazione generalmente insufficiente per indovinare un pokémon, forzando l’utente ad andare a caso. Dopo aver inserito un primo tentativo il programma darà altri indizi all’utente, permettendogli di figurare, passo dopo passo, quale sia il pokémon di cui il programma stava fornendo gli indizi.
-Gli indizi che vengono dati sono la parte più importante del gioco. Ovviamente uno viene già dato all’inizio della partita e questo è la generazione di appartenenza al pokémon. In seguito, nell’ordine in cui vengono riportati qui, sono date queste informazioni: il primo tipo, la fase evolutiva, il secondo tipo, la rarità, la sagoma del pokémon e l’orma del piede, l’abilità e come ultimo indizio l’artwork.
+A sfida iniziata il programma darà il primo indizio riguardo al pokémon che l’utente deve indovinare. Informazione
+generalmente insufficiente per indovinare un pokémon, forzando l’utente ad andare a caso. Dopo aver inserito un primo
+tentativo il programma darà altri indizi all’utente, permettendogli di figurare, passo dopo passo, quale sia il pokémon
+di cui il programma stava fornendo gli indizi. Gli indizi che vengono dati sono la parte più importante del gioco.
+Ovviamente uno viene già dato all’inizio della partita e questo è la generazione di appartenenza al pokémon. In seguito,
+nell’ordine in cui vengono riportati qui, sono date queste informazioni: il primo tipo, la fase evolutiva, il secondo
+tipo, la rarità, la sagoma del pokémon e l’orma del piede, l’abilità e come ultimo indizio l’artwork.
 
 ## Il punteggio della competizione
 
-Ovviamente chi indovina viene ricompensato con un luccicante punteggio compreso tra zero a cento. 
-Il punteggio tiene conto di due fattori: 
-- Il filtro dei pokémon selezionato: maggiore è la quantità di pokémon tra cui si deve indovinare, maggiore è il punteggio!
+Ovviamente chi indovina viene ricompensato con un luccicante punteggio compreso tra zero a cento. Il punteggio tiene
+conto di due fattori:
+
+- Il filtro dei pokémon selezionato: maggiore è la quantità di pokémon tra cui si deve indovinare, maggiore è il
+  punteggio!
 - Il numero di tentativi utilizzato: vengono premiati coloro che utilizzano meno indizi per indovinare!
-E’ disponibile una tabella dei punteggi migliori da consultare a fine partita.
+  E’ disponibile una tabella dei punteggi migliori da consultare a fine partita.
 
 ## Siti utilizzati per ottenere informazioni necessarie
 
 Oltre al sito ufficiale, abbiamo utilizzato anche altri siti molto utili:
-- [fontmeme.com](https://fontmeme.com/it/font-pokemon/): questo sito è stato utile per la creazione di varie scritte nello stile proprio dei vari giochi Pokémon;
-- [veekun/pokedex](https://github.com/veekun/pokedex): questo sito è stato utilizzato per ottenere informazioni sull’id, il peso e le abilità dei pokémon;
-- [veekun.com/dex/downloads](https://veekun.com/dex/downloads): consultato per poter utilizzare gli sprite che erano necessari per rappresentare le orme o le sprite dei pokémon.
+
+- [fontmeme.com](https://fontmeme.com/it/font-pokemon/): questo sito è stato utile per la creazione di varie scritte
+  nello stile proprio dei vari giochi Pokémon;
+- [veekun/pokedex](https://github.com/veekun/pokedex): questo sito è stato utilizzato per ottenere informazioni sull’id,
+  il peso e le abilità dei pokémon;
+- [veekun.com/dex/downloads](https://veekun.com/dex/downloads): consultato per poter utilizzare gli sprite che erano
+  necessari per rappresentare le orme o le sprite dei pokémon.
 

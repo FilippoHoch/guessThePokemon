@@ -30,11 +30,11 @@ public class rankingController implements Initializable {
     private ImageView leaderBoard;
 
     /**
-    * Nella leaderboards, vengono scritti tutti i vari filtri attivi tramite il seguente metodo, creando delle colonne adeguate
-    *
-    * @arguments URL location
-    * @arguments ResourceBundle resources
-    */
+     * Nella leaderboards, vengono scritti tutti i vari filtri attivi tramite il seguente metodo, creando delle colonne adeguate
+     *
+     * @arguments URL location
+     * @arguments ResourceBundle resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         if (!sampleController.endGame && !users.isEmpty())
