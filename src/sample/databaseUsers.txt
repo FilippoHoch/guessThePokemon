@@ -1,3 +1,5 @@
+Pollo :: 1°, 2°,  generazione; Base, Phase1, Phase2, ; Starter, Common, Fossil, Legendary, Pseudo-Legendary, Mysterious,  :: 23
+Filippo :: 1°, 2°, 3°, 4°, 5°, 6°,  generazione; Base, Phase1, Phase2, ; Starter, Common, Fossil, Legendary, Pseudo-Legendary, Mysterious,  :: -288
 CheatingEstremo :: 1°, 2°, 3°, 4°, 5°, 6°,  generazione; Base, Phase1, Phase2, ; Starter, Common, Fossil, Legendary, Pseudo-Legendary, Mysterious,  :: 100
 Parappapero :: 1°, 2°, 3°, 4°, 5°, 6°,  generazione; Base, Phase1, Phase2, ; Starter, Common, Fossil, Legendary, Pseudo-Legendary, Mysterious,  :: 44
 FinalmenteFunziona :: 1°, 2°, 3°, 4°, 5°, 6°,  generazione; Base, Phase1, Phase2, ; Starter, Common, Fossil, Legendary, Pseudo-Legendary, Mysterious,  :: 77

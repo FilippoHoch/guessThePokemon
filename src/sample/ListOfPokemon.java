@@ -20,8 +20,8 @@ public class ListOfPokemon {
     }
 
     /**
-    * Questo metodo estrae i dati dei Pokémon dal file Excel e applica 
-    */
+     * Questo metodo estrae i dati dei Pokémon dal file Excel e applica
+     */
     public void excelReading() {
         try {
             File f = new File("src/sample/Excel/withoutDescription/pokemonDataBaseWD.xlsx");
@@ -102,10 +102,10 @@ public class ListOfPokemon {
     }
 
     /**
-    * Questo metodo permette, nel caso il Pokémon abbia più di un'abilità, di poterla assegnare completamente.
-    *
-    * @arguments Pokémon
-    */
+     * Questo metodo permette, nel caso il Pokémon abbia più di un'abilità, di poterla assegnare completamente.
+     *
+     * @arguments Pokémon
+     */
     public String randomAbility(Pokemon pokemon) {
         Random random = new Random();
         String ability;
@@ -116,10 +116,10 @@ public class ListOfPokemon {
     }
 
     /**
-    * Quando si gioca, possiamo utilizzare dei filtri per poter selezionare i Pokémon desiderati. Grazie a questo metodo, possiamo selezionarli.
-    *
-    * @return lista dei Pokémon che sono stati filtrati
-    */
+     * Quando si gioca, possiamo utilizzare dei filtri per poter selezionare i Pokémon desiderati. Grazie a questo metodo, possiamo selezionarli.
+     *
+     * @return lista dei Pokémon che sono stati filtrati
+     */
     public ArrayList<Pokemon> filteredPokemons() {
         ArrayList<Pokemon> pokemons = (ArrayList<Pokemon>) pokemonArrayList.clone();
         String[] rar = {"Starter", "Common", "Fossil", "Legendary", "Pseudo-Legendary", "Mysterious"};
@@ -152,10 +152,10 @@ public class ListOfPokemon {
     }
 
     /**
-    * Il metodo seleziona randomicamente uno dei vari Pokémon che sono stati filtrati.
-    *
-    * @return lista dei Pokémon che sono stati filtrati
-    */
+     * Il metodo seleziona randomicamente uno dei vari Pokémon che sono stati filtrati.
+     *
+     * @return lista dei Pokémon che sono stati filtrati
+     */
     public Pokemon takeRandomPokemon() {
         Random random = new Random();
         return filteredPokemons().get(random.nextInt(filteredPokemons().size()));
