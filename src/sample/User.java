@@ -35,7 +35,7 @@ public class User {
         return settings;
     }
 
-    /*
+    /**
     * Il seguente metodo permette di assegnare il punteggio del giocatore che varia in base al numero di filtri e al numero di tentativi nell'indovinare 
     */
     public void setScore() {
@@ -45,7 +45,7 @@ public class User {
         score = (int) tempScore;
     }
 
-    /* 
+    /**
     * Questo metodo permette di poter creare una stringa di informazioni che cambiano in base ai vari filtri selezionati
     */
     public void setSettings() {
