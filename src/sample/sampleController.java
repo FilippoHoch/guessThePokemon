@@ -62,7 +62,7 @@ public class sampleController {
     @FXML
     private ListView<String> listView = new ListView<>();
 
-    /* 
+    /** 
     * Questo metodo raffigura ciò che si vede appena il programma viene fatto partire
     */
     @FXML
@@ -86,7 +86,7 @@ public class sampleController {
         });
     }
 
-    /* 
+    /**
     * Il metodo seguente inizia la parte del codice del programma
     */
     @FXML
@@ -108,7 +108,7 @@ public class sampleController {
         });
     }
 
-    /* 
+    /**
     * La parte del punteggio del programma viene richiamato tramite il seguente metodo
     */
     @FXML
@@ -116,7 +116,7 @@ public class sampleController {
 
     }
 
-    /* 
+    /**
     * Questo metodo nel caso chi stia giocando prova troppe volte, il gioco finisce
     */
     @FXML
@@ -199,7 +199,7 @@ public class sampleController {
         }
     }
 
-    /* 
+    /**
     * La schermata che si visualizza la prima volta che si apre il gioco, è definita nel seguente metodo
     */
     public void startGame() {
