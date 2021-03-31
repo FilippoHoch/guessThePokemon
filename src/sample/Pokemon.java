@@ -15,7 +15,7 @@ public class Pokemon {
     public String[] abilities = new String[3];
     public String randomAbility;
 
-    /* 
+    /**
     * Il costruttore dei Pokémon richiede tutte le informazioni caratteristiche di ogni Pokémon
     */
     public Pokemon(int id, String name, int evoPhase, String type1, String type2,
@@ -67,7 +67,7 @@ public class Pokemon {
         return weight;
     }
 
-    /* 
+    /**
     * Questo metodo ci permette di poter assegnare correttamente tutte le abilità dei Pokémon, in particolare quelli che ne hanno più di una
     */
     public void setAbilities() {
