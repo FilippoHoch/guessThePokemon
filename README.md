@@ -1,6 +1,5 @@
 # Guess the Pokémon – Sub project
 
-
 ## Il progetto
 
 Il progetto si compone principalmente da due sotto progetti, il

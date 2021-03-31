@@ -37,10 +37,9 @@ public class User {
 
     // Il seguente metodo permette di assegnare il punteggio del giocatore che varia in base al numero di filtri e al numero di tentativi nell'indovinare 
     public void setScore() {
-        double nPkMod = (double) (ListOfPokemon.filteredPokemonArrayList.size() / 721 > 0.33 ?
-                (ListOfPokemon.filteredPokemonArrayList.size() / 721) : 0.33)
+        double nPkMod = (double) (ListOfPokemon.filteredPokemonArrayList.size() / 721 > 0.33 ? (ListOfPokemon.filteredPokemonArrayList.size() / 721) : 0.33);
         double tryMod = (10 - (double) sampleController.nTry) / 9;
-        double tempScore = nPokemonMod * tryMod * 100;
+        double tempScore = nPkMod * tryMod * 100;
         score = (int) tempScore;
     }
 

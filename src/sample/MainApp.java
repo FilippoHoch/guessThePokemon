@@ -14,7 +14,7 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("menu.fxml"));
 
         Scene sample = new Scene(root);
 
@@ -22,7 +22,7 @@ public class MainApp extends Application {
 
         primaryStage.setResizable(false);
 
-        primaryStage.setTitle("Guess the Pokemon");
+        primaryStage.setTitle("Menu");
         primaryStage.show();
     }
 }

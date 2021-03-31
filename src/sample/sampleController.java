@@ -64,7 +64,7 @@ public class sampleController {
 
     // Questo metodo raffigura ciò che si vede appena il programma viene fatto partire
     @FXML
-    public void initialize() {
+    public void initialize() throws Exception{
         Image unknownImage = new Image(new File("src/sample/img/unknown.png").toURI().toString());
         logo.setImage(new Image(new File("src/sample/img/logo.png").toURI().toString()));
         cover.setImage(new Image(new File("src/sample/img/coverAnimated.gif").toURI().toString()));
@@ -72,6 +72,16 @@ public class sampleController {
         animatedSprite.setImage(unknownImage);
         outline.setImage(unknownImage);
         conversion.excelReading();
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/sample/createNewGame.fxml"));
+        Parent root = loader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.setOnHiding(event -> {
+            if (work)
+                startGame();
+            work = false;
+        });
     }
 
     // Il metodo seguente inizia la parte del codice del programma
@@ -97,16 +107,7 @@ public class sampleController {
     // La parte del punteggio del programma viene richiamato tramite il seguente metodo
     @FXML
     private void leaderBoards() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/sample/ranking.fxml"));
-        Parent root = loader.load();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.setTitle("Leader Board");
-        Stage currentStage = (Stage) logo.getScene().getWindow();
-        stage.initOwner(currentStage);
-        stage.initModality(Modality.WINDOW_MODAL);
-        stage.setResizable(false);
-        stage.show();
+
     }
 
     // Questo metodo nel caso chi stia giocando prova troppe volte, il gioco finisce
@@ -243,7 +244,5 @@ public class sampleController {
         rarity.setText("???");
         evolutionStep.setText("???");
         name.setText("???");
-
-
     }
 }
