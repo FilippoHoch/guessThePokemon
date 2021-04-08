@@ -46,7 +46,7 @@ Durante la prima settimana, non ci siamo incentrati molto su questo codice prefe
 parte di questo progetto, ovvero la randomizzazione dei vari Pokémon.
 
 Nello specifico questa settimana abbiamo lavorato al progetto scrivendo in
-un [database](https://docs.google.com/spreadsheets/d/1-Yw_hxKg4_Z6nziu_lHgmgpDhv4dFtOQmIZDYbOK21I/edit?usp=sharing)
+un [database] (https://docs.google.com/spreadsheets/d/1-Yw_hxKg4_Z6nziu_lHgmgpDhv4dFtOQmIZDYbOK21I/edit?usp=sharing)
 tutte le informazioni dei vari pokémon che ci serviranno per svolgere il programma.
 
 ## Seconda settimana
@@ -70,15 +70,6 @@ Nella quarta settimana, siamo riusciti a completare maggior parte del codice, mi
 creando la parte dei leaderboards, salvando chiunque giochi tramite un sistema di punteggio. La parte principale è stata
 ultimata, ma ci sono ancora piccoli bug che ogni tanto si scoprono provando sempre più il programma. Nonostante alcuni
 problemi, siamo quasi al termine di tutto.
-
-### Codice:
-
-- Punteggio
-- Salvare gli user e i punteggi in un file
-
-### Grafica:
-
-- Implementazione tableView LeaderBoard
 
 ## Autori
 
