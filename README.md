@@ -46,7 +46,7 @@ Durante la prima settimana, non ci siamo incentrati molto su questo codice prefe
 parte di questo progetto, ovvero la randomizzazione dei vari Pokémon.
 
 Nello specifico questa settimana abbiamo lavorato al progetto scrivendo in
-un [database] (https://docs.google.com/spreadsheets/d/1-Yw_hxKg4_Z6nziu_lHgmgpDhv4dFtOQmIZDYbOK21I/edit?usp=sharing)
+un [database](https://docs.google.com/spreadsheets/d/1-Yw_hxKg4_Z6nziu_lHgmgpDhv4dFtOQmIZDYbOK21I/edit?usp=sharing)
 tutte le informazioni dei vari pokémon che ci serviranno per svolgere il programma.
 
 ## Seconda settimana
@@ -54,7 +54,7 @@ tutte le informazioni dei vari pokémon che ci serviranno per svolgere il progra
 Durante questa settimana abbiamo lavorato divisi un due gruppi: uno si occupava di iniziare a fare la grafica su
 SceneBuilder, mentre l'altro ha iniziato a creare il codice funzionante senza l'aggiunta della grafica che verrà
 implementata successivamente. Nel codice abbiamo effettuato la lettura
-del [database] (https://docs.google.com/spreadsheets/d/1-Yw_hxKg4_Z6nziu_lHgmgpDhv4dFtOQmIZDYbOK21I/edit?usp=sharing)
+del [database](https://docs.google.com/spreadsheets/d/1-Yw_hxKg4_Z6nziu_lHgmgpDhv4dFtOQmIZDYbOK21I/edit?usp=sharing)
 contenente le informazioni relative a ciascun pokémon.
 
 ## Terza settimana
